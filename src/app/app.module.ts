@@ -6,6 +6,9 @@ import { FormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import {DataService} from "../services/services";
+import {HTTPProvider} from "../providers/http-provider/http-provider";
+import {Http, HttpModule} from "@angular/http";
 
 
 
@@ -24,9 +27,14 @@ const appRoutes: Routes = [
   imports: [
     BrowserModule,
     FormsModule,
-    RouterModule.forRoot(appRoutes)
+    RouterModule.forRoot(appRoutes),
+    HttpModule
   ],
-  providers: [],
+  providers: [
+    DataService,
+    HTTPProvider,
+    Http
+  ],
   bootstrap: [AppComponent]
 })
 
