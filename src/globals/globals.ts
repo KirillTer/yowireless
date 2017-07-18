@@ -4,11 +4,7 @@ export class Globals {
   static USERTOKEN: string;
   static LOGGEDINUSER: any;
 
-  static SERVERADDR: string;
-
-  constructor() {
-    Globals.SERVERADDR = window.location.host + '9100';
-  }
+  static SERVERADDR: string = 'http://127.0.0.1:9201';
 
   static getHeaders() {
     return new Headers({

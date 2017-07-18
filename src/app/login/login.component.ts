@@ -32,7 +32,7 @@ export class LoginComponent implements OnInit {
   }
 
   private handleData_login(data) {
-    if (data.result == 'ok') {
+    if (data.result == 'OK') {
       Globals.USERTOKEN = data.payload.securityToken;
       Globals.LOGGEDINUSER = data.payload.loggedInUser;
       console.log(Globals.USERTOKEN);

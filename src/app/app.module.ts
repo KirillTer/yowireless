@@ -6,11 +6,9 @@ import { FormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
-import {DataService} from "../services/services";
-import {HTTPProvider} from "../providers/http-provider/http-provider";
-import {Http, HttpModule} from "@angular/http";
-
-
+import { DataService } from "../services/services";
+import { HTTPProvider } from "../providers/http-provider/http-provider";
+import { HttpModule } from "@angular/http";
 
 const appRoutes: Routes = [
   {path: 'login', component: LoginComponent, data: { title: 'login' }},
@@ -28,12 +26,13 @@ const appRoutes: Routes = [
     BrowserModule,
     FormsModule,
     RouterModule.forRoot(appRoutes),
-    HttpModule
+    HttpModule,
+    BrowserModule,
+    FormsModule
   ],
   providers: [
     DataService,
-    HTTPProvider,
-    Http
+    HTTPProvider
   ],
   bootstrap: [AppComponent]
 })

@@ -28,7 +28,7 @@ export class DataService {
 
   login(username, password){
     let body = JSON.stringify({
-      username: username,
+      login: username,
       password: password
     });
 
@@ -39,7 +39,7 @@ export class DataService {
     });
     let options = new RequestOptions({headers: headers});
 
-    return this.http.post(Globals.SERVERADDR + '/public/login', body, options)
+    return this.http.post(Globals.SERVERADDR + '/login', body, options)
       .map(this.extractData)
       .catch(this.handleError);
   }
