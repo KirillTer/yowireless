@@ -1,5 +1,5 @@
 import {Injectable} from "@angular/core";
-import {Http, Headers, RequestOptions} from "@angular/http";
+import {Http, Headers, RequestOptions, RequestMethod} from "@angular/http";
 import {Response} from "@angular/http";
 import {Observable} from "rxjs/Rx";
 import {Globals} from "../globals/globals";
@@ -37,9 +37,9 @@ export class DataService {
       'Authorization': 'Basic ' + userCred,
       'Content-Type': 'application/json'
     });
-    let options = new RequestOptions({headers: headers});
-
-    return this.http.post(Globals.SERVERADDR + '/login', body, options)
+    let options = new RequestOptions({headers: headers, body: body, method: RequestMethod.Post, url: Globals.SERVERADDR + '/login', withCredentials: false});
+    console.log(options);
+    return this.http.request(Globals.SERVERADDR + '/login', options)
       .map(this.extractData)
       .catch(this.handleError);
   }
