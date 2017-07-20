@@ -1,5 +1,6 @@
 <p-dataTable [value]="cpServers">
 
+  <p-column field="host" header="host"></p-column>
   <p-column field="nginxState" header="nginxState"></p-column>
   <p-column field="postgresqlState" header="postgresqlState"></p-column>
   <p-column field="radiusState" header="radiusState"></p-column>
@@ -15,6 +16,7 @@
 </p-dataTable>
 
 <p-dataTable [value]="cps">
+  <p-column field="host" header="host"></p-column>
   <p-column field="nasid" header="nasid"></p-column>
   <p-column field="lastHourSessionsCount" header="lastHourSessionsCount"></p-column>
   <p-column field="todaySessionsCount" header="todaySessionsCount"></p-column>

@@ -30,7 +30,9 @@ export class DashboardComponent implements OnInit {
       for (let i = 0; i < this.cpServers.length; i++) {
         let cpStateList = this.cpServers[i].cpStateList;
         for (let j = 0; j < cpStateList.length; j++) {
-          this.cps.push(cpStateList[j]);
+          let cpState = cpStateList[j];
+          cpState.host = this.cpServers[i].host;
+          this.cps.push(cpState);
         }
       }
     }
