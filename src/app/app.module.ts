@@ -7,8 +7,10 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { DataService } from "../services/services";
-import { HTTPProvider } from "../providers/http-provider/http-provider";
 import { HttpModule } from "@angular/http";
+
+import {MenuItem} from 'primeng/components/common/api';
+import {DataTableModule} from "primeng/primeng";
 
 const appRoutes: Routes = [
   {path: 'login', component: LoginComponent, data: { title: 'login' }},
@@ -28,11 +30,11 @@ const appRoutes: Routes = [
     RouterModule.forRoot(appRoutes),
     HttpModule,
     BrowserModule,
-    FormsModule
+    FormsModule,
+    DataTableModule
   ],
   providers: [
-    DataService,
-    HTTPProvider
+    DataService
   ],
   bootstrap: [AppComponent]
 })

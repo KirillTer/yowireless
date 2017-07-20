@@ -1,3 +1,22 @@
-<p>
-  dashboard works!
-</p>
+<p-dataTable [value]="cpServers">
+
+  <p-column field="nginxState" header="nginxState"></p-column>
+  <p-column field="postgresqlState" header="postgresqlState"></p-column>
+  <p-column field="radiusState" header="radiusState"></p-column>
+  <p-column field="replicationState" header="replicationState"></p-column>
+  <p-column field="cpAppState" header="cpAppState"></p-column>
+  <p-column field="cpSpace.totalGB" header="totalSpace"></p-column>
+  <p-column field="cpSpace.freeGB" header="freeSpace"></p-column>
+  <p-column field="cpSpace.availableSpace" header="availableSpace"></p-column>
+
+  <!--<p-column field="lastHourSessionsCount" header="lastHourSessionsCount"></p-column>-->
+  <!--<p-column field="todaySessionsCount" header="todaySessionsCount"></p-column>-->
+  <!--<p-column field="lastHourNewUsersCount" header="lastHourNewUsersCount"></p-column>-->
+</p-dataTable>
+
+<p-dataTable [value]="cps">
+  <p-column field="nasid" header="nasid"></p-column>
+  <p-column field="lastHourSessionsCount" header="lastHourSessionsCount"></p-column>
+  <p-column field="todaySessionsCount" header="todaySessionsCount"></p-column>
+  <p-column field="lastHourNewUsersCount" header="lastHourNewUsersCount"></p-column>
+</p-dataTable>

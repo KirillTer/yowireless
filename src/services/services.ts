@@ -6,13 +6,11 @@ import {Globals} from "../globals/globals";
 
 @Injectable()
 export class DataService {
-  http: Http;
   data: Response;
   result: any;
   error: any;
 
-  constructor(http: Http) {
-    this.http = http;
+  constructor(private http: Http) {
     this.data = null;
   }
 
@@ -27,19 +25,27 @@ export class DataService {
   }
 
   login(username, password){
-    let body = JSON.stringify({
-      login: username,
+    console.log(username);
+    console.log(password);
+    let body = {
+      username: username,
       password: password
-    });
-
+    };
+    let url = Globals.SERVERADDR + '/login?username=' + username + '&password=' + password;
     let userCred = window.btoa(username + ':' + password);
     let headers = new Headers({
       'Authorization': 'Basic ' + userCred,
       'Content-Type': 'application/json'
     });
-    let options = new RequestOptions({headers: headers, body: body, method: RequestMethod.Post, url: Globals.SERVERADDR + '/login', withCredentials: false});
-    console.log(options);
-    return this.http.request(Globals.SERVERADDR + '/login', options)
+    console.log(body);
+    return this.http.post(url, body, {headers: headers})
+      .map(this.extractData)
+      .catch(this.handleError);
+  }
+
+  getDashboardData() {
+    let headers = new Headers({'X-AUTH-TOKEN': Globals.USERTOKEN});
+    return this.http.get(Globals.SERVERADDR + '/cpServersStatus', {headers: headers})
       .map(this.extractData)
       .catch(this.handleError);
   }
