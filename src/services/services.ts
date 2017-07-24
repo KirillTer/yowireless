@@ -1,8 +1,10 @@
 import {Injectable} from "@angular/core";
-import {Http, Headers, RequestOptions, RequestMethod} from "@angular/http";
+import {Http, Headers} from "@angular/http";
 import {Response} from "@angular/http";
 import {Observable} from "rxjs/Rx";
 import {Globals} from "../globals/globals";
+import {CookieService} from "ngx-cookie-service";
+import {Router} from "@angular/router";
 
 @Injectable()
 export class DataService {
@@ -10,7 +12,9 @@ export class DataService {
   result: any;
   error: any;
 
-  constructor(private http: Http) {
+  constructor(private http: Http,
+              private router: Router,
+              private cookies: CookieService) {
     this.data = null;
   }
 
@@ -44,8 +48,11 @@ export class DataService {
   }
 
   getDashboardData() {
+    if (Globals.USERTOKEN == null) {
+      Globals.USERTOKEN = this.cookies.get(Globals.COOK_USERTOKEN);
+    }
     let headers = new Headers({'X-AUTH-TOKEN': Globals.USERTOKEN});
-    return this.http.get(Globals.SERVERADDR + '/cpServersStatus', {headers: headers})
+    return this.http.get(Globals.SERVERADDR + '/cpServersStatus?username=u&password=p', {headers: headers})
       .map(this.extractData)
       .catch(this.handleError);
   }

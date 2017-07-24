@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import {NgModule} from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 
@@ -9,8 +9,8 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { DataService } from "../services/services";
 import { HttpModule } from "@angular/http";
 
-import {MenuItem} from 'primeng/components/common/api';
 import {DataTableModule} from "primeng/primeng";
+import {CookieService} from "ngx-cookie-service";
 
 const appRoutes: Routes = [
   {path: 'login', component: LoginComponent, data: { title: 'login' }},
@@ -34,9 +34,10 @@ const appRoutes: Routes = [
     DataTableModule
   ],
   providers: [
-    DataService
+    DataService,
+    CookieService
   ],
   bootstrap: [AppComponent]
 })
 
-export class AppModule { }
+export class AppModule {}
