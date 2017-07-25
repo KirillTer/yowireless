@@ -1,24 +1,25 @@
-<p-dataTable [value]="cpServers">
-
-  <p-column field="host" header="host"></p-column>
-  <p-column field="nginxState" header="nginxState"></p-column>
-  <p-column field="postgresqlState" header="postgresqlState"></p-column>
-  <p-column field="radiusState" header="radiusState"></p-column>
-  <p-column field="replicationState" header="replicationState"></p-column>
-  <p-column field="cpAppState" header="cpAppState"></p-column>
-  <p-column field="cpSpace.totalGB" header="totalSpace"></p-column>
-  <p-column field="cpSpace.freeGB" header="freeSpace"></p-column>
-  <p-column field="cpSpace.availableSpace" header="availableSpace"></p-column>
+<p-dataTable [value]="cpServers" class="first-table" responsive="true">
+<p-header>First Table</p-header>
+  <p-column field="host" header="host" [sortable]="true" [filter]="true"></p-column>
+  <p-column field="nginxState" header="nginxState" [sortable]="true" [filter]="true"></p-column>
+  <p-column field="postgresqlState" header="postgresqlState" [sortable]="true" [filter]="true"></p-column>
+  <p-column field="radiusState" header="radiusState" [sortable]="true" [filter]="true"></p-column>
+  <p-column field="replicationState" header="replicationState" [sortable]="true" [filter]="true"></p-column>
+  <p-column field="cpAppState" header="cpAppState" [sortable]="true" [filter]="true"></p-column>
+  <p-column field="cpSpace.totalGB" header="totalSpace"[sortable]="true" [filter]="true" ></p-column>
+  <p-column field="cpSpace.freeGB" header="freeSpace" [sortable]="true" [filter]="true"></p-column>
+  <p-column field="cpSpace.availableSpace" header="availableSpace" [sortable]="true" [filter]="true"></p-column>
 
   <!--<p-column field="lastHourSessionsCount" header="lastHourSessionsCount"></p-column>-->
   <!--<p-column field="todaySessionsCount" header="todaySessionsCount"></p-column>-->
   <!--<p-column field="lastHourNewUsersCount" header="lastHourNewUsersCount"></p-column>-->
 </p-dataTable>
 
-<p-dataTable [value]="cps">
-  <p-column field="host" header="host"></p-column>
-  <p-column field="nasid" header="nasid"></p-column>
-  <p-column field="lastHourSessionsCount" header="lastHourSessionsCount"></p-column>
-  <p-column field="todaySessionsCount" header="todaySessionsCount"></p-column>
-  <p-column field="lastHourNewUsersCount" header="lastHourNewUsersCount"></p-column>
+<p-dataTable class="second-table" [value]="cps" sortMode="multiple" responsive="true">
+  <p-header>Second Table</p-header>
+  <p-column field="host" header="host" [sortable]="true" [filter]="true"></p-column>
+  <p-column field="nasid" header="nasid" [sortable]="true" [filter]="true"></p-column>
+  <p-column field="lastHourSessionsCount" header="lastHourSessionsCount"  [sortable]="true" [filter]="true"></p-column>
+  <p-column field="todaySessionsCount" header="todaySessionsCount" [sortable]="true" [filter]="true"></p-column>
+  <p-column field="lastHourNewUsersCount" header="lastHourNewUsersCount" [sortable]="true" [filter]="true"></p-column>
 </p-dataTable>

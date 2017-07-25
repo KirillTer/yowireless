@@ -11,6 +11,8 @@ import { HttpModule } from "@angular/http";
 
 import {DataTableModule} from "primeng/primeng";
 import {CookieService} from "ngx-cookie-service";
+import {AccordionModule} from 'primeng/components/accordion/accordion';
+import {MenuItem} from 'primeng/components/common/api';
 
 const appRoutes: Routes = [
   {path: 'login', component: LoginComponent, data: { title: 'login' }},
@@ -31,7 +33,8 @@ const appRoutes: Routes = [
     HttpModule,
     BrowserModule,
     FormsModule,
-    DataTableModule
+    DataTableModule,
+    AccordionModule,
   ],
   providers: [
     DataService,

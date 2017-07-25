@@ -1,0 +1,92 @@
+.login-container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: #d4e4ef;
+    /* Old browsers */
+    /* FF3.6-15 */
+    background: -webkit-linear-gradient(#d4e4ef 0%, #86aecc 100%);
+    background: -moz-linear-gradient(#d4e4ef 0%, #86aecc 100%);
+    background: -o-linear-gradient(#d4e4ef 0%, #86aecc 100%);
+    background: linear-gradient(#d4e4ef 0%, #86aecc 100%);
+    /* Chrome10-25,Safari5.1-6 */
+    /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d4e4ef', endColorstr='#86aecc', GradientType=0);
+    /* IE6-9 */
+}
+.head-name{
+    text-transform: uppercase;
+    color: #fff;
+}
+.input-name,
+.input-password {
+    display: flex;
+    flex-direction: column;
+}
+
+/* .input-name label,
+.input-password label{
+    text-transform: uppercase;
+    font-size: 0.9em;
+    font-weight: 600;
+    padding-bottom: 5px;
+    font-family: sans-serif;
+} */
+
+.input-btn,
+.input-name input,
+.input-password input{
+    width: 100%;
+    min-width: 200px;
+    padding: 10px;
+}
+
+
+.input-btn{
+    box-sizing: content-box;
+    background:rgba(236, 236, 236, 0.7);
+    box-shadow: none;
+    text-transform: uppercase;
+    border:none;
+    font-size: 0.8em;
+    font-weight: 600;
+}
+.input-btn:focus{
+    outline:rgba(150, 147, 147, 0.4) solid;
+}
+.input-btn,
+input[type="text"]:focus,
+input[type="password"]:focus{
+    outline: rgba(255,255,255,0.4) solid;
+    transition: .4s ease;
+    border:none;
+}
+input[type="text"],
+input[type="password"]
+{
+    background: transparent;
+    border-left:none;
+    border-right: none;
+    border-top: none;
+    border-bottom: 1px solid #fff;
+}
+::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+  color: grey;
+  font-size: 15px;
+  line-height: 1;
+}
+::-moz-placeholder { /* Firefox 19+ */
+  color: grey;
+  font-size: 15px;
+}
+:-ms-input-placeholder { /* IE 10+ */
+  color: grey;
+  font-size: 15px;
+}
+:-moz-placeholder { /* Firefox 18- */
+  color: grey;
+  font-size: 15px;
+}

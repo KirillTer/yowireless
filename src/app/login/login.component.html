@@ -1,6 +1,18 @@
 <router-outlet></router-outlet>
-username: <input [(ngModel)]="ywm_username" name="username" placeholder="username" required/>
-<br/>
-password: <input [(ngModel)]="ywm_password" name="password" placeholder="username" type="password" required/>
-<br/>
-<input (click)="login()" type="button" value="Login"/>
+
+<div class="login-container">
+  <h1 class="head-name">Sign In</h1>
+    <div class="input-name">
+      <!-- <label for="username">username:</label> -->
+      <input [(ngModel)]="ywm_username" name="username" placeholder="Username" type="text" required/>
+    </div>
+    <br/>
+    <div class="input-password">
+      <!-- <label for="password">password:</label> -->
+      <input [(ngModel)]="ywm_password" name="password" placeholder="Password" type="password" required/>
+      <br/>
+    </div>
+    <div class="btnBlock">
+      <button class="input-btn" (click)="login()" type="button" value="Login">Login</button>
+    </div>
+</div>
