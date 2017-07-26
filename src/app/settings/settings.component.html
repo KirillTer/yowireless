@@ -1,0 +1,35 @@
+<app-menu></app-menu>
+Email settings:
+<div class="input-name">
+<label> username
+  <input [(ngModel)]="mail.username" name="username" type="text"/>
+</label>
+</div>
+<div class="input-name">
+<label> password
+  <input [(ngModel)]="mail.password" name="username" type="password"/>
+</label>
+</div>
+<div class="input-name">
+<label> smtp_starttls_enable
+  <input [(ngModel)]="mail.smtpStarttlsEnable" name="username" type="checkbox"/>
+</label>
+</div>
+<div class="input-name">
+<label> smtp_auth
+  <input [(ngModel)]="mail.smtpAuth" name="username" type="checkbox"/>
+</label>
+</div>
+<div class="input-name">
+<label> smtp_host
+  <input [(ngModel)]="mail.smtpHost" name="username" type="text"/>
+</label>
+</div>
+<div class="input-name">
+<label> smtp_port
+  <input [(ngModel)]="mail.smtpPort" name="username" type="number"/>
+</label>
+</div>
+<div>
+<button (click)="saveEmail()">save email settings</button>
+</div>

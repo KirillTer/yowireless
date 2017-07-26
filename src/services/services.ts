@@ -48,11 +48,31 @@ export class DataService {
   }
 
   getDashboardData() {
+    this.loadToken();
+    let headers = new Headers({'X-AUTH-TOKEN': Globals.USERTOKEN});
+    return this.http.get(Globals.SERVERADDR + '/cpServersStatus?', {headers: headers})
+      .map(this.extractData)
+      .catch(this.handleError);
+  }
+
+  getEmailSettings() {
+    this.loadToken();
+    let headers = new Headers({'X-AUTH-TOKEN': Globals.USERTOKEN});
+    return this.http.get(Globals.SERVERADDR + '/getEmailSettings?', {headers: headers})
+      .map(this.extractData)
+      .catch(this.handleError);
+  }
+
+  loadToken(){
     if (Globals.USERTOKEN == null) {
       Globals.USERTOKEN = this.cookies.get(Globals.COOK_USERTOKEN);
     }
+  }
+
+  saveEmailSettings(mail: any) {
+    this.loadToken();
     let headers = new Headers({'X-AUTH-TOKEN': Globals.USERTOKEN});
-    return this.http.get(Globals.SERVERADDR + '/cpServersStatus?username=u&password=p', {headers: headers})
+    return this.http.post(Globals.SERVERADDR + '/saveEmailSettings?', mail,{headers: headers})
       .map(this.extractData)
       .catch(this.handleError);
   }

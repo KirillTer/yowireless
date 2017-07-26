@@ -9,6 +9,7 @@ import {DataService} from "../../services/services";
 export class DashboardComponent implements OnInit {
   cpServers;
   cps;
+
   constructor(private data: DataService, ) { }
 
   ngOnInit() {
@@ -17,18 +18,21 @@ export class DashboardComponent implements OnInit {
 
   refreshDashboard() {
     this.data.getDashboardData().subscribe(
-      data => this.handleData_login(data),
-      error => this.handleError_login(error),
+      data => this.handleData_dashboard(data),
+      error => this.handleError_dashboard(error),
       () => console.log('Completed!')
-    )
+    );
   }
 
-  private handleData_login(data) {
+  private handleData_dashboard(data) {
     if (data.result == 'OK') {
       this.cpServers = data.cpServers;
       this.cps = [];
       for (let i = 0; i < this.cpServers.length; i++) {
         let cpStateList = this.cpServers[i].cpStateList;
+        if (cpStateList == null) {
+          continue;
+        }
         for (let j = 0; j < cpStateList.length; j++) {
           let cpState = cpStateList[j];
           cpState.host = this.cpServers[i].host;
@@ -38,7 +42,7 @@ export class DashboardComponent implements OnInit {
     }
   }
 
-  private handleError_login(error) {
+  private handleError_dashboard(error) {
     console.log('Error during getting dashboard data!');
     console.log(error);
   }

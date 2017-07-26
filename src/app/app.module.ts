@@ -9,14 +9,16 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { DataService } from "../services/services";
 import { HttpModule } from "@angular/http";
 
-import {DataTableModule} from "primeng/primeng";
+import {DataTableModule, MenuModule} from "primeng/primeng";
 import {CookieService} from "ngx-cookie-service";
 import {AccordionModule} from 'primeng/components/accordion/accordion';
-import {MenuItem} from 'primeng/components/common/api';
+import { MenuComponent } from './menu/menu.component';
+import { SettingsComponent } from './settings/settings.component';
 
 const appRoutes: Routes = [
   {path: 'login', component: LoginComponent, data: { title: 'login' }},
   {path: 'dashboard', component: DashboardComponent, data: { title: 'dashboard' }},
+  {path: 'settings', component: SettingsComponent, data: { title: 'settings' }},
   { path: '**', redirectTo: 'login' }
 ];
 
@@ -24,7 +26,9 @@ const appRoutes: Routes = [
   declarations: [
     AppComponent,
     LoginComponent,
-    DashboardComponent
+    DashboardComponent,
+    MenuComponent,
+    SettingsComponent
   ],
   imports: [
     BrowserModule,
@@ -34,6 +38,7 @@ const appRoutes: Routes = [
     BrowserModule,
     FormsModule,
     DataTableModule,
+    MenuModule,
     AccordionModule,
   ],
   providers: [
