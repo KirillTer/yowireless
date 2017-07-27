@@ -5,7 +5,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background: #f2f2f2;
+    background: #fff;
     /* Old browsers */
     /* FF3.6-15 */
     /*background: -webkit-linear-gradient(#d4e4ef 0%, #86aecc 100%);
@@ -20,6 +20,7 @@
 .head-name{
     text-transform: uppercase;
     color: #fff;
+    margin-top: 10%;
 }
 .input-name,
 .input-password {
@@ -59,6 +60,7 @@
 }
 .login-title{
     color: #3f51b5;
+    margin-top: 10%;
 }
 .mat-input-container{
     min-width: 350px;

@@ -14,7 +14,7 @@ export const MAINMENUITEMS: MainMenuItem[] = [
   // },
   {
     title: 'Dashboards',
-    icon: 'fa fa-th',
+    icon: 'fa fa-window-restore',
     active: false,
     groupTitle: false,
     sub: '',
@@ -25,7 +25,7 @@ export const MAINMENUITEMS: MainMenuItem[] = [
   },
   {
     title: 'Settings',
-    icon: 'fa fa-th',
+    icon: 'fa fa-cogs',
     active: false,
     groupTitle : false,
     sub: '',
@@ -36,7 +36,7 @@ export const MAINMENUITEMS: MainMenuItem[] = [
   },
   {
     title: 'Users',
-    icon: 'fa fa-calendar',
+    icon: 'fa fa-users',
     active: false,
     groupTitle : false,
     sub: '',
