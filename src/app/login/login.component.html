@@ -1,16 +1,18 @@
 <div class="login-container">
-  <h1>YoWireless</h1>
-    <div class="input-name">
+  <h1 class="login-title">YoWireless</h1>
       <!-- <label for="username">username:</label> -->
-      <input [(ngModel)]="ywm_username" name="username" placeholder="Username" type="text" required/>
-    </div>
-    <br/>
-    <div class="input-password">
-      <!-- <label for="password">password:</label> -->
+      <!--<input [(ngModel)]="ywm_username" name="username" placeholder="Username" type="text" required/>-->
+     <md-input-container>
+       <input mdInput placeholder="Username" type="text" required [(ngModel)]="ywm_username" name="username"/> 
+     </md-input-container>
+    <!--<div class="input-password">
+      <label for="password">password:</label>
       <input [(ngModel)]="ywm_password" name="password" placeholder="Password" type="password" required/>
       <br/>
-    </div>
-    <div class="btnBlock">
-      <button class="input-btn" (click)="login()" type="button" value="Login">Login</button>
-    </div>
+    </div>-->
+     <md-input-container>
+       <input mdInput [(ngModel)]="ywm_password" name="password" placeholder="Password" type="password" required/> 
+     </md-input-container>
+      <!--<button class="input-btn" (click)="login()" type="button" value="Login">Login</button>-->
+      <button md-raised-button color="primary" (click)="login()" type="button" value="Login" >Login</button>
 </div>

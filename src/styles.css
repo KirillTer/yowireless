@@ -18,6 +18,8 @@
     font-weight: normal;
     font-style: normal
 } */
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
 td span.ui-column-title{
     display: none;
 }
