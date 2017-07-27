@@ -71,14 +71,14 @@
       <md-input-container class="settings-input">
        <input mdInput type="text" placeholder="apiKey" [(ngModel)]="sms.apiKey" name=""/> 
      </md-input-container>
-     <md-input-container class="settings-input">
-       <input mdInput type="text" placeholder="url" [(ngModel)]="sms.apiKey" name=""/> 
-     </md-input-container>
 </div>
 <div>
   <!--<label> url
     <input [(ngModel)]="sms.apiKey" name="" type="text"/>
   </label>-->
+       <md-input-container class="settings-input">
+       <input mdInput type="text" placeholder="url" [(ngModel)]="sms.apiKey" name=""/> 
+     </md-input-container>
 </div>
 <div>
   <button md-raised-button color="primary" (click)="saveSms()" type="button" class="save-settings">Save sms settings</button>
