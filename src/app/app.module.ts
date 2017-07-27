@@ -18,6 +18,7 @@ import { UsersComponent } from './users/users.component';
 import {SidebarComponent} from "./sidebar/sidebar.component";
 import {LogoComponent} from "app/logo/logo.component";
 import {MainMenuComponent} from "./main-menu/main-menu.component";
+import {DatePipe} from "@angular/common";
 
 const appRoutes: Routes = [
   {path: 'login', component: LoginComponent, data: { title: 'login' }},
