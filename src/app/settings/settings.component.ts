@@ -8,9 +8,11 @@ import {DataService} from "../../services/services";
 })
 export class SettingsComponent implements OnInit {
   mail;
+  sms;
 
   constructor(private data: DataService) {
     this.mail = [];
+    this.sms = [];
     this.loadEmail();
   }
 
@@ -51,6 +53,42 @@ export class SettingsComponent implements OnInit {
 
   private handleError_saveemail(error) {
     console.log('Error during saving email settings!');
+    console.log(error);
+  }
+
+  loadSms() {
+    this.data.getSmsSettings().subscribe(
+      data => this.handleData_loadsms(data),
+      error => this.handleError_loadsms(error),
+      () => console.log('Completed!')
+    );
+  }
+
+  private handleData_loadsms(data) {
+    this.mail = data;
+  }
+
+  private handleError_loadsms(error) {
+    console.log('Error during loading sms settings!');
+    console.log(error);
+  }
+
+  saveSms() {
+    this.data.saveSmsSettings(this.sms).subscribe(
+      data => this.handleData_savesms(data),
+      error => this.handleError_savesms(error),
+      () => console.log('Completed!')
+    );
+  }
+
+  private handleData_savesms(data) {
+    if (data.result == 'OK') {
+      console.log('sms saved');
+    }
+  }
+
+  private handleError_savesms(error) {
+    console.log('Error during saving sms settings!');
     console.log(error);
   }
 }

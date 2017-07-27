@@ -16,6 +16,7 @@ export class MenuComponent implements OnInit {
     this.items = [
       {label: 'Dashboard', routerLink: ['/dashboard']},
       {label: 'Settings', routerLink: ['/settings']},
+      {label: 'Users', routerLink: ['/users']},
       {label: 'Logout', routerLink: ['/logout']}
     ];
   }
