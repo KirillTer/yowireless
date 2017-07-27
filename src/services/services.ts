@@ -50,7 +50,7 @@ export class DataService {
   getDashboardData() {
     this.loadToken();
     let headers = new Headers({'X-AUTH-TOKEN': Globals.USERTOKEN});
-    return this.http.get(Globals.SERVERADDR + '/cpServersStatus?', {headers: headers})
+    return this.http.get(Globals.SERVERADDR + '/cpServersStatus', {headers: headers})
       .map(this.extractData)
       .catch(this.handleError);
   }
@@ -58,7 +58,7 @@ export class DataService {
   getEmailSettings() {
     this.loadToken();
     let headers = new Headers({'X-AUTH-TOKEN': Globals.USERTOKEN});
-    return this.http.get(Globals.SERVERADDR + '/getEmailSettings?', {headers: headers})
+    return this.http.get(Globals.SERVERADDR + '/getEmailSettings', {headers: headers})
       .map(this.extractData)
       .catch(this.handleError);
   }
@@ -72,7 +72,30 @@ export class DataService {
   saveEmailSettings(mail: any) {
     this.loadToken();
     let headers = new Headers({'X-AUTH-TOKEN': Globals.USERTOKEN});
-    return this.http.post(Globals.SERVERADDR + '/saveEmailSettings?', mail,{headers: headers})
+    return this.http.post(Globals.SERVERADDR + '/saveEmailSettings', mail,{headers: headers})
+      .map(this.extractData)
+      .catch(this.handleError);
+  }
+
+  getUsers() {
+    this.loadToken();
+    let headers = new Headers({'X-AUTH-TOKEN': Globals.USERTOKEN});
+    return this.http.get(Globals.SERVERADDR + '/users', {headers: headers})
+      .map(this.extractData)
+      .catch(this.handleError);
+  }
+
+  getSmsSettings() {
+    let headers = new Headers({'X-AUTH-TOKEN': Globals.USERTOKEN});
+    return this.http.get(Globals.SERVERADDR + '/getSmsSettings', {headers: headers})
+      .map(this.extractData)
+      .catch(this.handleError);
+  }
+
+  saveSmsSettings(sms: any) {
+    this.loadToken();
+    let headers = new Headers({'X-AUTH-TOKEN': Globals.USERTOKEN});
+    return this.http.post(Globals.SERVERADDR + '/saveEmailSettings', sms,{headers: headers})
       .map(this.extractData)
       .catch(this.handleError);
   }

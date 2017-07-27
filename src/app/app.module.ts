@@ -14,10 +14,12 @@ import {CookieService} from "ngx-cookie-service";
 import {AccordionModule} from 'primeng/components/accordion/accordion';
 import { MenuComponent } from './menu/menu.component';
 import { SettingsComponent } from './settings/settings.component';
+import { UsersComponent } from './users/users.component';
 
 const appRoutes: Routes = [
   {path: 'login', component: LoginComponent, data: { title: 'login' }},
   {path: 'dashboard', component: DashboardComponent, data: { title: 'dashboard' }},
+  {path: 'users', component: UsersComponent, data: { title: 'users' }},
   {path: 'settings', component: SettingsComponent, data: { title: 'settings' }},
   { path: '**', redirectTo: 'login' }
 ];
@@ -28,7 +30,8 @@ const appRoutes: Routes = [
     LoginComponent,
     DashboardComponent,
     MenuComponent,
-    SettingsComponent
+    SettingsComponent,
+    UsersComponent
   ],
   imports: [
     BrowserModule,
