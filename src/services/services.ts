@@ -95,7 +95,7 @@ export class DataService {
   saveSmsSettings(sms: any) {
     this.loadToken();
     let headers = new Headers({'X-AUTH-TOKEN': Globals.USERTOKEN});
-    return this.http.post(Globals.SERVERADDR + '/saveEmailSettings', sms,{headers: headers})
+    return this.http.post(Globals.SERVERADDR + '/saveSmsSettings', sms,{headers: headers})
       .map(this.extractData)
       .catch(this.handleError);
   }

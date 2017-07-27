@@ -15,6 +15,9 @@ import {AccordionModule} from 'primeng/components/accordion/accordion';
 import { MenuComponent } from './menu/menu.component';
 import { SettingsComponent } from './settings/settings.component';
 import { UsersComponent } from './users/users.component';
+import {SidebarComponent} from "./sidebar/sidebar.component";
+import {LogoComponent} from "app/logo/logo.component";
+import {MainMenuComponent} from "./main-menu/main-menu.component";
 
 const appRoutes: Routes = [
   {path: 'login', component: LoginComponent, data: { title: 'login' }},
@@ -31,7 +34,10 @@ const appRoutes: Routes = [
     DashboardComponent,
     MenuComponent,
     SettingsComponent,
-    UsersComponent
+    UsersComponent,
+    SidebarComponent,
+    LogoComponent,
+    MainMenuComponent
   ],
   imports: [
     BrowserModule,
