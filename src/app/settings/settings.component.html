@@ -1,5 +1,7 @@
-<app-menu></app-menu>
-Email settings:
+<sidebar></sidebar>
+<!--<app-menu></app-menu>-->
+<div class="settings">
+  Email settings:
 <div>
   <label> username
     <input [(ngModel)]="mail.username" name="mail_username" type="text"/>
@@ -56,4 +58,5 @@ Sms api settings:
 </div>
 <div>
   <button (click)="saveSms()">save sms settings</button>
+</div>
 </div>

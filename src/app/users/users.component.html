@@ -1,4 +1,6 @@
-<app-menu></app-menu>
+<sidebar></sidebar>
+<!--<app-menu></app-menu>-->
+<div class="users">
 <p-dataTable class="first-table" [value]="users" sortMode="multiple" responsive="true">
   <p-header>Second Table</p-header>
   <p-column field="id" header="id" [sortable]="true" [filter]="true"></p-column>
@@ -56,3 +58,4 @@
 <button>add user</button>
 <button>save user</button>
 <button>delete user</button>
+</div>

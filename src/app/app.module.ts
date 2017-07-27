@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { FormsModule } from '@angular/forms';
-import {MdButtonModule, MdCheckboxModule, MdInputModule} from '@angular/material';
+import {MdButtonModule, MdTableModule, MdInputModule} from '@angular/material';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
@@ -50,7 +50,7 @@ const appRoutes: Routes = [
     MenuModule,
     AccordionModule,
     MdButtonModule,
-    MdCheckboxModule,
+    MdTableModule,
     MdInputModule
   ],
   providers: [

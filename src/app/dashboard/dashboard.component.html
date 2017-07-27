@@ -1,5 +1,7 @@
-<app-menu></app-menu>
+<sidebar></sidebar>
+<!--<app-menu></app-menu>-->
 
+<div class="dashboard">
 <p-dataTable [value]="cpServers" class="first-table" responsive="true">
 <p-header>First Table</p-header>
   <p-column field="host" header="host" [sortable]="true" [filter]="true"></p-column>
@@ -24,3 +26,4 @@
   <p-column field="lastHourNewUsersCount" header="lastHourNewUsersCount" [sortable]="true" [filter]="true"></p-column>
   <p-column field="todayNewUsersCount" header="todayNewUsersCount" [sortable]="true" [filter]="true"></p-column>
 </p-dataTable>
+</div>
