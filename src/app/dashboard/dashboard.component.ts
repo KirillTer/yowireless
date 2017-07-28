@@ -19,25 +19,23 @@ export class DashboardComponent implements OnInit {
   ngOnInit() {
     this.refreshDashboard();
     this.cpServersColumns = [
-      { prop: 'host', name: 'host' },
-      { prop: 'nginxState', name: 'nginxState' },
-      { prop: 'postgresqlState', name: 'postgresqlState' },
-      { prop: 'radiusState', name: 'radiusState' },
-      { prop: 'replicationState', name: 'replicationState' },
-      { prop: 'cpAppState', name: 'cpAppState' },
-      { prop: 'cpSpace.totalGB', name: 'totalSpace' },
-      { prop: 'cpSpace.freeGB', name: 'freeSpace' },
-      { prop: 'cpSpace.availableSpace', name: 'availableSpace' },
-      { prop: 'certificateExpireDate', name: 'certificateExpireDate' }
+      { prop: 'host', name: 'host', width: 100, minWidth: 100, maxWidth: 100, resizable: false, canAutoResize: false, draggable: false },
+      { prop: 'nginxState', name: 'nginx', width: 100, minWidth: 100, maxWidth: 100, resizable: false, canAutoResize: false },
+      { prop: 'postgresqlState', name: 'postgresql', width: 120, minWidth: 120, maxWidth: 120, resizable: false, canAutoResize: false },
+      { prop: 'radiusState', name: 'radius', width: 100, minWidth: 100, maxWidth: 100, resizable: false, canAutoResize: false },
+      { prop: 'replicationState', name: 'replication', width: 130, minWidth: 130, maxWidth: 130, resizable: false, canAutoResize: false },
+      { prop: 'cpAppState', name: 'CP app', width: 120, minWidth: 120, maxWidth: 120, resizable: false, canAutoResize: false },
+      { prop: 'cpSpace.freeGB', name: 'freeSpace', width: 120, minWidth: 120, maxWidth: 120, resizable: false, canAutoResize: false },
+      { prop: 'certificateExpireDate', name: 'cert expires', width: 140, minWidth: 140, maxWidth: 140, resizable: false, canAutoResize: false }
     ];
     this.cpsColumns = [
-      { prop: 'host', name: 'host' },
-      { prop: 'nasid', name: 'nasid' },
-      { prop: 'localTime', name: 'localTime' },
-      { prop: 'lastHourSessionsCount', name: 'lastHourSessionsCount' },
-      { prop: 'todaySessionsCount', name: 'todaySessionsCount' },
-      { prop: 'lastHourNewUsersCount', name: 'lastHourNewUsersCount' },
-      { prop: 'todayNewUsersCount', name: 'todayNewUsersCount' }
+      { prop: 'host', name: 'host', width: 80, minWidth: 80, maxWidth: 80, resizable: false, canAutoResize: false, draggable: false },
+      { prop: 'nasid', name: 'nasid', width: 140, minWidth: 140, maxWidth: 140, resizable: false, canAutoResize: false, draggable: false  },
+      { prop: 'localTime', name: 'localTime', width: 130, minWidth: 130, maxWidth: 130, resizable: false, canAutoResize: false, draggable: false  },
+      { prop: 'lastHourSessionsCount', name: 'lastHourSessionsCount', width: 220, minWidth: 220, maxWidth: 220, resizable: false, canAutoResize: false, draggable: false  },
+      { prop: 'todaySessionsCount', name: 'todaySessionsCount', width: 190, minWidth: 190, maxWidth: 190, resizable: false, canAutoResize: false, draggable: false  },
+      { prop: 'lastHourNewUsersCount', name: 'lastHourNewUsersCount', width: 220, minWidth: 220, maxWidth: 220, resizable: false, canAutoResize: false, draggable: false  },
+      { prop: 'todayNewUsersCount', name: 'todayNewUsersCount', width: 220, minWidth: 220, maxWidth: 220, resizable: false, canAutoResize: false, draggable: false  }
     ];
   }
 
@@ -55,13 +53,14 @@ export class DashboardComponent implements OnInit {
       this.cpServers = data.cpServers;
       this.cps = [];
       for (let i = 0; i < this.cpServers.length; i++) {
+        this.cpServers[i].host = this.cpServers[i].host.replace('https://ikea-', '').replace('.net', '');
         let cpStateList = this.cpServers[i].cpStateList;
         if (this.cpServers[i].certificateExpireDate === 0) {
           this.cpServers[i].certificateExpireDate = 'UNDEFINED';
         } else {
           let d = new Date(this.cpServers[i].certificateExpireDate);
           let datepipe: DatePipe = new DatePipe(this.cpServers[i].certificateExpireDate);
-          this.cpServers[i].certificateExpireDate = datepipe.transform(d, 'yyyy-MM-dd hh:mm:ss');
+          this.cpServers[i].certificateExpireDate = datepipe.transform(d, 'yyyy-MM-dd');
         }
         if (cpStateList == null) {
           continue;

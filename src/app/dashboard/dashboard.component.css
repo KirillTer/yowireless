@@ -28,3 +28,12 @@
 .dashboard-card-content{
     padding: 10px;
 }
+.ngx-datatable.material .datatable-header{
+    overflow: visible
+}
+.ngx-datatable{
+    overflow: scroll;
+}
+.ngx-datatable .datatable-header{
+    width: 120%;
+}

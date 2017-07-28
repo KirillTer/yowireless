@@ -1,7 +1,13 @@
+@media (max-width: 991px) {
+    .settings[_ngcontent-c1]{
+        margin-left: 0 !important;
+    }
+}
 .settings{
     margin-left: 220px;
     /*background: #fff;*/
     font-family: 'Open sans', sans-serif;
+    transition: .3s all;
 }
 .setings-card{
     background: white;
