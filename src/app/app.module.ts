@@ -20,12 +20,13 @@ import {SidebarComponent} from "./sidebar/sidebar.component";
 import {LogoComponent} from "app/logo/logo.component";
 import {MainMenuComponent} from "./main-menu/main-menu.component";
 import { NgxDatatableModule } from '@swimlane/ngx-datatable';
+import {Authentication} from "auth/authentication";
 
 const appRoutes: Routes = [
-  {path: 'login', component: LoginComponent, data: { title: 'login' }},
-  {path: 'dashboard', component: DashboardComponent, data: { title: 'dashboard' }},
-  {path: 'users', component: UsersComponent, data: { title: 'users' }},
-  {path: 'settings', component: SettingsComponent, data: { title: 'settings' }},
+  {path: 'login', component: LoginComponent, data: { title: 'login' }, canActivate:[Authentication]},
+  {path: 'dashboard', component: DashboardComponent, data: { title: 'dashboard' }, canActivate:[Authentication]},
+  {path: 'users', component: UsersComponent, data: { title: 'users' }, canActivate:[Authentication]},
+  {path: 'settings', component: SettingsComponent, data: { title: 'settings' }, canActivate:[Authentication]},
   { path: '**', redirectTo: 'login' }
 ];
 
@@ -61,7 +62,8 @@ const appRoutes: Routes = [
   ],
   providers: [
     DataService,
-    CookieService
+    CookieService,
+    Authentication
   ],
   bootstrap: [AppComponent]
 })

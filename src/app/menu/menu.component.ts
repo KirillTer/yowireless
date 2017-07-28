@@ -1,5 +1,7 @@
-import { Component, OnInit, Input } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {MenuItem} from "primeng/primeng";
+import {DataService} from "../../services/services";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-menu',
@@ -7,8 +9,9 @@ import {MenuItem} from "primeng/primeng";
   styleUrls: ['./menu.component.scss']
 })
 export class MenuComponent implements OnInit {
- @Input() openedSidebar: boolean = false;
-  constructor() { }
+  @Input() openedSidebar: boolean = false;
+
+  constructor(private data: DataService, private router: Router) { }
 
   items: MenuItem[];
   open(event) {
@@ -38,4 +41,19 @@ export class MenuComponent implements OnInit {
     ];
   }
 
+  logout() {
+    this.data.logout().subscribe(
+      data => this.handleData_logout(data),
+      error => this.handleError_logout(error),
+      () => console.log('Completed!')
+    );
+  }
+
+  private handleError_logout(error: any) {
+    console.log('error during logout');
+  }
+
+  private handleData_logout(data: any | any) {
+    this.router.navigate(['/login']);
+  }
 }

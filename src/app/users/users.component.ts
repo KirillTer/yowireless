@@ -12,12 +12,12 @@ export class UsersComponent implements OnInit {
   currentUser;
   newUserPannelShown: boolean;
 
-  constructor(private data: DataService, ) {
-    this.currentUser =[];
+  constructor(private data: DataService) {
+    this.currentUser = {};
     this.usersColumns =[
       { prop: 'id', name: 'id' , width: 60, minWidth: 60, maxWidth: 60, resizable: false, canAutoResize: false},
       { prop: 'username', name: 'username' , width: 120, minWidth: 120, maxWidth: 120, resizable: false, canAutoResize: false},
-      { prop: 'password', name: 'password' , width: 120, minWidth: 120, maxWidth: 120, resizable: false, canAutoResize: false},
+      // { prop: 'password', name: 'password' , width: 120, minWidth: 120, maxWidth: 120, resizable: false, canAutoResize: false},
       { prop: 'firstName', name: 'firstName' , width: 120, minWidth: 120, maxWidth: 120, resizable: false, canAutoResize: false},
       { prop: 'lastName', name: 'lastName' , width: 120, minWidth: 120, maxWidth: 120, resizable: false, canAutoResize: false},
       { prop: 'email', name: 'email' , width: 240, minWidth: 240, maxWidth: 240, resizable: false, canAutoResize: false},
@@ -55,11 +55,28 @@ export class UsersComponent implements OnInit {
     this.newUserPannelShown = true;
   }
 
-  saveUser() {
+  cancelAddUser() {
+    this.newUserPannelShown = false;
+  }
 
+  saveUser() {
+    this.data.createUser(this.currentUser).subscribe(
+      data => this.handleData_createusers(data),
+      error => this.handleError_createusers(error),
+      () => console.log('Completed!')
+    );
+    this.newUserPannelShown = false;
   }
 
   deleteUser() {
 
+  }
+
+  private handleData_createusers(data: any) {
+
+  }
+
+  private handleError_createusers(error: any) {
+    console.log('error during creating user');
   }
 }

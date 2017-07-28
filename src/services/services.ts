@@ -63,7 +63,7 @@ export class DataService {
       .catch(this.handleError);
   }
 
-  loadToken(){
+  private loadToken(){
     if (Globals.USERTOKEN == null) {
       Globals.USERTOKEN = this.cookies.get(Globals.COOK_USERTOKEN);
     }
@@ -101,8 +101,33 @@ export class DataService {
   }
 
   getNotifications() {
+    this.loadToken();
     let headers = new Headers({'X-AUTH-TOKEN': Globals.USERTOKEN});
     return this.http.post(Globals.SERVERADDR + '/getNotifications', {},{headers: headers})
+      .map(this.extractData)
+      .catch(this.handleError);
+  }
+
+  isLoggedIn() {
+    this.loadToken();
+    let headers = new Headers({'X-AUTH-TOKEN': Globals.USERTOKEN});
+    return this.http.post(Globals.SERVERADDR + '/isLoggedIn', {},{headers: headers})
+      .map(this.extractData)
+      .catch(this.handleError);
+  }
+
+  logout() {
+    this.loadToken();
+    let headers = new Headers({'X-AUTH-TOKEN': Globals.USERTOKEN});
+    return this.http.post(Globals.SERVERADDR + '/logoutMe', {},{headers: headers})
+      .map(this.extractData)
+      .catch(this.handleError);
+  }
+
+  createUser(user: any) {
+    this.loadToken();
+    let headers = new Headers({'X-AUTH-TOKEN': Globals.USERTOKEN});
+    return this.http.post(Globals.SERVERADDR + '/createUser', user,{headers: headers})
       .map(this.extractData)
       .catch(this.handleError);
   }

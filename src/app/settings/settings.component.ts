@@ -11,8 +11,8 @@ export class SettingsComponent implements OnInit {
   sms;
 
   constructor(private data: DataService) {
-    this.mail = [];
-    this.sms = [];
+    this.mail = {};
+    this.sms = {};
     this.loadEmail();
   }
 
@@ -29,7 +29,9 @@ export class SettingsComponent implements OnInit {
   }
 
   private handleData_loademail(data) {
-    this.mail = data;
+    if (data.result == 'OK') {
+      this.mail = data.payload;
+    }
   }
 
   private handleError_loademail(error) {
@@ -65,7 +67,9 @@ export class SettingsComponent implements OnInit {
   }
 
   private handleData_loadsms(data) {
-    this.mail = data;
+    if (data.result == 'OK') {
+      this.sms = data.payload;
+    }
   }
 
   private handleError_loadsms(error) {
