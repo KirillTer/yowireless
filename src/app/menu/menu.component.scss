@@ -2,14 +2,21 @@
     .hamburger{
         display: flex !important;
     }
+    .menu{
+      width: 100% !important;
+    }
 }
 
 .menu{
 background: white;
-position: relative;
+position: fixed;
+z-index: 9999;
+width: calc(100% - 220px);
+top: 0;
 height: 50px;
 display: flex;
-justify-content: flex-end
+justify-content: flex-end;
+border-bottom: 1px solid #dfe4ed;
 }
 .menu-button{
 border:none; 
@@ -27,13 +34,34 @@ background: transparent;
         .dropdown-menu {
             display: block;
           }
+        ~.items-overlay {
+            opacity: 1;
+            transition:
+              .2s opacity 0s,
+              0s visibility 0s;
+            visibility: visible;
+          }
     }
 }
+      .items-overlay {
+        background: rgba(#3c4e62,.2);
+        height: 100%;
+        left: 0;
+        opacity: 0;
+        position: fixed;
+        top: 0;
+        transition:
+          .2s opacity 0s,
+          0s visibility .2s;
+        visibility: hidden;
+        width: 100%;
+        z-index: 9998;
+      }
 .dropdown-menu {
           background: #3c4e62;
           box-shadow: 0 5px 10px 2px rgba(#000,.25);
           display: none;
-          right: 2.3%;
+          right: 21px;
           margin: 0 0 0 -150px;
           padding: 0;
           position: absolute;
@@ -72,10 +100,11 @@ background: transparent;
           }
           .menu-footer {
             background: #3c4e62;
-
-            a {
+            border-top: 1px solid #fff;
+            button {
               color: #fff;
-              
+              background: transparent;
+              border: none !important;
               &:hover {
                 color: rgba(#fff,.8);
               }
@@ -94,41 +123,14 @@ background: transparent;
               &:last-child {
                 border-bottom: 0;
               }
-              > a {
+              > button {
                 align-items: center;
                 color: #fff;
                 display: flex;
                 padding: 11px;
                 transition: background .2s;
-
-                &:hover {
-                  background: main-color(A100);
-                }
-                .mat-icon {
-                  background: rgba(#fff,.1);
-                  border-radius: 50%;
-                  font-size: 26px;
-                  height: auto;
-                  margin-right: 11px;
-                  padding: 7px;
-                  width: auto;
-
-                  .rtl & {
-                    margin-right: 0;
-                    margin-left: 11px;
-                  }
-                }
-                .avatar {
-                  border-radius: 50%;
-                  height: 40px;
-                  margin-right: 11px;
-                  width: 40px;
-
-                  .rtl & {
-                    margin-right: 0;
-                    margin-left: 11px;
-                  }
-                }
+                background-color: transparent !important;
+                border: none !important;
                 .content {
                   font-size: .85rem;
                   
@@ -172,9 +174,11 @@ background: transparent;
             }
             > ul {
               > li {
-                > a {
+                > button {
                   padding-top: 8px;
                   padding-bottom: 8px;
+                  background-color: transparent !important;
+                  border: none !important;
 
                   .fa {
                     margin-right: 11px;
