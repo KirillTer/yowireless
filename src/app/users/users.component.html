@@ -2,61 +2,73 @@
 <!--<app-menu></app-menu>-->
 <div class="users">
    <app-menu></app-menu>
-<p-dataTable class="first-table" [value]="users" sortMode="multiple" responsive="true">
-  <p-header>Second Table</p-header>
-  <p-column field="id" header="id" [sortable]="true" [filter]="true"></p-column>
-  <p-column field="username" header="username" [sortable]="true" [filter]="true"></p-column>
-  <p-column field="password" header="password"  [sortable]="true" [filter]="true"></p-column>
-  <p-column field="firstName" header="firstName" [sortable]="true" [filter]="true"></p-column>
-  <p-column field="lastName" header="lastName" [sortable]="true" [filter]="true"></p-column>
-  <p-column field="email" header="email" [sortable]="true" [filter]="true"></p-column>
-  <p-column field="sendEmail" header="sendEmail" [sortable]="true" [filter]="true"></p-column>
-  <p-column field="phoneNumber" header="phoneNumber" [sortable]="true" [filter]="true"></p-column>
-  <p-column field="sendSms" header="sendSms" [sortable]="true" [filter]="true"></p-column>
-</p-dataTable>
+<!--<p-dataTable class="first-table" [value]="users" sortMode="multiple" responsive="true">-->
+  <!--<p-header>Second Table</p-header>-->
+  <!--<p-column field="id" header="id" [sortable]="true" [filter]="true"></p-column>-->
+  <!--<p-column field="username" header="username" [sortable]="true" [filter]="true"></p-column>-->
+  <!--<p-column field="password" header="password"  [sortable]="true" [filter]="true"></p-column>-->
+  <!--<p-column field="firstName" header="firstName" [sortable]="true" [filter]="true"></p-column>-->
+  <!--<p-column field="lastName" header="lastName" [sortable]="true" [filter]="true"></p-column>-->
+  <!--<p-column field="email" header="email" [sortable]="true" [filter]="true"></p-column>-->
+  <!--<p-column field="sendEmail" header="sendEmail" [sortable]="true" [filter]="true"></p-column>-->
+  <!--<p-column field="phoneNumber" header="phoneNumber" [sortable]="true" [filter]="true"></p-column>-->
+  <!--<p-column field="sendSms" header="sendSms" [sortable]="true" [filter]="true"></p-column>-->
+<!--</p-dataTable>-->
 
-<div>
-  <label> username
-    <input id="username" [(ngModel)]=currentUser.username type="text"/>
-  </label>
-</div>
-<div>
-  <label>password
-    <input id="password" [(ngModel)]=currentUser.password type="password"/>
-  </label>
-</div>
-<div>
-  <label>firstName
-    <input id="firstName" [(ngModel)]=currentUser.firstName type="text"/>
-  </label>
-</div>
-<div>
-  <label>lastName
-    <input id="lastName" [(ngModel)]=currentUser.lastName type="text"/>
-  </label>
-</div>
-<div>
-  <label>email
-    <input id="email" [(ngModel)]=currentUser.email type="email"/>
-  </label>
-</div>
-<div>
-  <label>sendEmail
-    <input id="sendEmail" [(ngModel)]=currentUser.sendEmail type="checkbox"/>
-  </label>
-</div>
-<div>
-  <label>phoneNumber
-    <input id="phoneNumber" [(ngModel)]=currentUser.phoneNumber type="text"/>
-  </label>
-</div>
-<div>
-  <label>sendSms
-    <input id="sendSms" [(ngModel)]=currentUser.sendSms type="checkbox"/>
-  </label>
-</div>
+  <ngx-datatable
+    class='material'
+    [columns]="usersColumns"
+    [columnMode]="'force'"
+    [headerHeight]="'auto'"
+    [rowHeight]="'auto'"
+    [rows]='users'>
+    [loadingIndicator]="loadingIndicator"
+  </ngx-datatable>
 
-<button>add user</button>
-<button>save user</button>
-<button>delete user</button>
+  <div (show)="newUserPannelShown">
+    <div>
+      <label> username
+        <input id="username" [(ngModel)]=currentUser.username type="text"/>
+      </label>
+    </div>
+    <div>
+      <label>password
+        <input id="password" [(ngModel)]=currentUser.password type="password"/>
+      </label>
+    </div>
+    <div>
+      <label>firstName
+        <input id="firstName" [(ngModel)]=currentUser.firstName type="text"/>
+      </label>
+    </div>
+    <div>
+      <label>lastName
+        <input id="lastName" [(ngModel)]=currentUser.lastName type="text"/>
+      </label>
+    </div>
+    <div>
+      <label>email
+        <input id="email" [(ngModel)]=currentUser.email type="email"/>
+      </label>
+    </div>
+    <div>
+      <label>sendEmail
+        <input id="sendEmail" [(ngModel)]=currentUser.sendEmail type="checkbox"/>
+      </label>
+    </div>
+    <div>
+      <label>phoneNumber
+        <input id="phoneNumber" [(ngModel)]=currentUser.phoneNumber type="text"/>
+      </label>
+    </div>
+    <div>
+      <label>sendSms
+        <input id="sendSms" [(ngModel)]=currentUser.sendSms type="checkbox"/>
+      </label>
+    </div>
+  </div>
+
+  <button (click)="addUser()" (show)="!newUserPannelShown">add user</button>
+  <button (click)="saveUser()">save user</button>
+  <button (click)="deleteUser()">delete user</button>
 </div>

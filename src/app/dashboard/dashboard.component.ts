@@ -10,11 +10,35 @@ import {DatePipe} from "@angular/common";
 export class DashboardComponent implements OnInit {
   cpServers;
   cps;
+  tempCps;
+  cpServersColumns;
+  cpsColumns;
 
   constructor(private data: DataService) { }
 
   ngOnInit() {
     this.refreshDashboard();
+    this.cpServersColumns = [
+      { prop: 'host', name: 'host' },
+      { prop: 'nginxState', name: 'nginxState' },
+      { prop: 'postgresqlState', name: 'postgresqlState' },
+      { prop: 'radiusState', name: 'radiusState' },
+      { prop: 'replicationState', name: 'replicationState' },
+      { prop: 'cpAppState', name: 'cpAppState' },
+      { prop: 'cpSpace.totalGB', name: 'totalSpace' },
+      { prop: 'cpSpace.freeGB', name: 'freeSpace' },
+      { prop: 'cpSpace.availableSpace', name: 'availableSpace' },
+      { prop: 'certificateExpireDate', name: 'certificateExpireDate' }
+    ];
+    this.cpsColumns = [
+      { prop: 'host', name: 'host' },
+      { prop: 'nasid', name: 'nasid' },
+      { prop: 'localTime', name: 'localTime' },
+      { prop: 'lastHourSessionsCount', name: 'lastHourSessionsCount' },
+      { prop: 'todaySessionsCount', name: 'todaySessionsCount' },
+      { prop: 'lastHourNewUsersCount', name: 'lastHourNewUsersCount' },
+      { prop: 'todayNewUsersCount', name: 'todayNewUsersCount' }
+    ];
   }
 
   refreshDashboard() {
@@ -26,6 +50,7 @@ export class DashboardComponent implements OnInit {
   }
 
   private handleData_dashboard(data) {
+    console.log(data);
     if (data.result == 'OK') {
       this.cpServers = data.cpServers;
       this.cps = [];
@@ -50,11 +75,35 @@ export class DashboardComponent implements OnInit {
           this.cps.push(cpState);
         }
       }
+      this.tempCps = this.cps;
     }
   }
 
   private handleError_dashboard(error) {
     console.log('Error during getting dashboard data!');
     console.log(error);
+  }
+
+  updateFilterHost(event) {
+    const val = event.target.value;
+
+    // filter our data
+    const temp = this.tempCps.filter(function(d) {
+      return d.host.toLowerCase().indexOf(val) !== -1 || !val;
+    });
+
+    // update the rows
+    this.cps = temp;
+  }
+  updateFilterNasid(event) {
+    const val = event.target.value;
+
+    // filter our data
+    const temp = this.tempCps.filter(function(d) {
+      return d.nasid.toLowerCase().indexOf(val) !== -1 || !val;
+    });
+
+    // update the rows
+    this.cps = temp;
   }
 }

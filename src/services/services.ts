@@ -50,7 +50,7 @@ export class DataService {
   getDashboardData() {
     this.loadToken();
     let headers = new Headers({'X-AUTH-TOKEN': Globals.USERTOKEN});
-    return this.http.get(Globals.SERVERADDR + '/cpServersStatus', {headers: headers})
+    return this.http.post(Globals.SERVERADDR + '/cpServersStatus', {}, {headers: headers})
       .map(this.extractData)
       .catch(this.handleError);
   }
@@ -58,7 +58,7 @@ export class DataService {
   getEmailSettings() {
     this.loadToken();
     let headers = new Headers({'X-AUTH-TOKEN': Globals.USERTOKEN});
-    return this.http.get(Globals.SERVERADDR + '/getEmailSettings', {headers: headers})
+    return this.http.post(Globals.SERVERADDR + '/getEmailSettings', {}, {headers: headers})
       .map(this.extractData)
       .catch(this.handleError);
   }
@@ -80,14 +80,14 @@ export class DataService {
   getUsers() {
     this.loadToken();
     let headers = new Headers({'X-AUTH-TOKEN': Globals.USERTOKEN});
-    return this.http.get(Globals.SERVERADDR + '/users', {headers: headers})
+    return this.http.post(Globals.SERVERADDR + '/users', {}, {headers: headers})
       .map(this.extractData)
       .catch(this.handleError);
   }
 
   getSmsSettings() {
     let headers = new Headers({'X-AUTH-TOKEN': Globals.USERTOKEN});
-    return this.http.get(Globals.SERVERADDR + '/getSmsSettings', {headers: headers})
+    return this.http.post(Globals.SERVERADDR + '/getSmsSettings', {}, {headers: headers})
       .map(this.extractData)
       .catch(this.handleError);
   }
@@ -96,6 +96,13 @@ export class DataService {
     this.loadToken();
     let headers = new Headers({'X-AUTH-TOKEN': Globals.USERTOKEN});
     return this.http.post(Globals.SERVERADDR + '/saveSmsSettings', sms,{headers: headers})
+      .map(this.extractData)
+      .catch(this.handleError);
+  }
+
+  getNotifications() {
+    let headers = new Headers({'X-AUTH-TOKEN': Globals.USERTOKEN});
+    return this.http.post(Globals.SERVERADDR + '/getNotifications', {},{headers: headers})
       .map(this.extractData)
       .catch(this.handleError);
   }

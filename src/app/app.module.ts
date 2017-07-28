@@ -19,7 +19,7 @@ import { UsersComponent } from './users/users.component';
 import {SidebarComponent} from "./sidebar/sidebar.component";
 import {LogoComponent} from "app/logo/logo.component";
 import {MainMenuComponent} from "./main-menu/main-menu.component";
-import {DatePipe} from "@angular/common";
+import { NgxDatatableModule } from '@swimlane/ngx-datatable';
 
 const appRoutes: Routes = [
   {path: 'login', component: LoginComponent, data: { title: 'login' }},
@@ -54,9 +54,10 @@ const appRoutes: Routes = [
     MdButtonModule,
     MdTableModule,
     MdInputModule,
-    MdSelectModule, 
+    MdSelectModule,
     MdCheckboxModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    NgxDatatableModule
   ],
   providers: [
     DataService,

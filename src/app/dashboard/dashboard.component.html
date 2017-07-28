@@ -3,29 +3,57 @@
 
 <div class="dashboard">
   <app-menu></app-menu>
-<p-dataTable [value]="cpServers" class="first-table" responsive="true">
-<p-header>First Table</p-header>
-  <p-column field="host" header="host" [sortable]="true" [filter]="true"></p-column>
-  <p-column field="nginxState" header="nginxState" [sortable]="true" [filter]="true"></p-column>
-  <p-column field="postgresqlState" header="postgresqlState" [sortable]="true" [filter]="true"></p-column>
-  <p-column field="radiusState" header="radiusState" [sortable]="true" [filter]="true"></p-column>
-  <p-column field="replicationState" header="replicationState" [sortable]="true" [filter]="true"></p-column>
-  <p-column field="cpAppState" header="cpAppState" [sortable]="true" [filter]="true"></p-column>
-  <p-column field="cpSpace.totalGB" header="totalSpace"[sortable]="true" [filter]="true" ></p-column>
-  <p-column field="cpSpace.freeGB" header="freeSpace" [sortable]="true" [filter]="true"></p-column>
-  <p-column field="cpSpace.availableSpace" header="availableSpace" [sortable]="true" [filter]="true"></p-column>
-  <p-column field="certificateExpireDate" header="certificateExpireDate" [sortable]="true" [filter]="true"></p-column>
+<!--<p-dataTable [value]="cpServers" class="first-table" responsive="true">-->
+<!--<p-header>First Table</p-header>-->
+  <!--<p-column field="host" header="host" [sortable]="true" [filter]="true"></p-column>-->
+  <!--<p-column field="nginxState" header="nginxState" [sortable]="true" [filter]="true"></p-column>-->
+  <!--<p-column field="postgresqlState" header="postgresqlState" [sortable]="true" [filter]="true"></p-column>-->
+  <!--<p-column field="radiusState" header="radiusState" [sortable]="true" [filter]="true"></p-column>-->
+  <!--<p-column field="replicationState" header="replicationState" [sortable]="true" [filter]="true"></p-column>-->
+  <!--<p-column field="cpAppState" header="cpAppState" [sortable]="true" [filter]="true"></p-column>-->
+  <!--<p-column field="cpSpace.totalGB" header="totalSpace"[sortable]="true" [filter]="true" ></p-column>-->
+  <!--<p-column field="cpSpace.freeGB" header="freeSpace" [sortable]="true" [filter]="true"></p-column>-->
+  <!--<p-column field="cpSpace.availableSpace" header="availableSpace" [sortable]="true" [filter]="true"></p-column>-->
+  <!--<p-column field="certificateExpireDate" header="certificateExpireDate" [sortable]="true" [filter]="true"></p-column>-->
 
-</p-dataTable>
+<!--</p-dataTable>-->
 
-<p-dataTable class="second-table" [value]="cps" sortMode="multiple" responsive="true">
-  <p-header>Second Table</p-header>
-  <p-column field="host" header="host" [sortable]="true" [filter]="true"></p-column>
-  <p-column field="nasid" header="nasid" [sortable]="true" [filter]="true"></p-column>
-  <p-column field="localTime" header="localTime" [sortable]="true" [filter]="true"></p-column>
-  <p-column field="lastHourSessionsCount" header="lastHourSessionsCount"  [sortable]="true" [filter]="true"></p-column>
-  <p-column field="todaySessionsCount" header="todaySessionsCount" [sortable]="true" [filter]="true"></p-column>
-  <p-column field="lastHourNewUsersCount" header="lastHourNewUsersCount" [sortable]="true" [filter]="true"></p-column>
-  <p-column field="todayNewUsersCount" header="todayNewUsersCount" [sortable]="true" [filter]="true"></p-column>
-</p-dataTable>
+<!--<p-dataTable class="second-table" [value]="cps" sortMode="multiple" responsive="true">-->
+  <!--<p-header>Second Table</p-header>-->
+  <!--<p-column field="host" header="host" [sortable]="true" [filter]="true"></p-column>-->
+  <!--<p-column field="nasid" header="nasid" [sortable]="true" [filter]="true"></p-column>-->
+  <!--<p-column field="localTime" header="localTime" [sortable]="true" [filter]="true"></p-column>-->
+  <!--<p-column field="lastHourSessionsCount" header="lastHourSessionsCount"  [sortable]="true" [filter]="true"></p-column>-->
+  <!--<p-column field="todaySessionsCount" header="todaySessionsCount" [sortable]="true" [filter]="true"></p-column>-->
+  <!--<p-column field="lastHourNewUsersCount" header="lastHourNewUsersCount" [sortable]="true" [filter]="true"></p-column>-->
+  <!--<p-column field="todayNewUsersCount" header="todayNewUsersCount" [sortable]="true" [filter]="true"></p-column>-->
+<!--</p-dataTable>-->
+
+  <ngx-datatable
+    class='material'
+    [columns]="cpServersColumns"
+    [columnMode]="'force'"
+    [headerHeight]="'auto'"
+    [rowHeight]="'auto'"
+    [rows]='cpServers'>
+    [loadingIndicator]="loadingIndicator"
+  </ngx-datatable>
+
+  <md-input-container style="width: 100%" class="mb-2">
+    <input mdInput placeholder="Type to filter the host column..." required (keyup)='updateFilterHost($event)'>
+  </md-input-container>
+  <md-input-container style="width: 100%" class="mb-2">
+    <input mdInput placeholder="Type to filter the nasid column..." required (keyup)='updateFilterNasid($event)'>
+  </md-input-container>
+
+  <ngx-datatable
+    class='material'
+    [columns]="cpsColumns"
+    [columnMode]="'force'"
+    [headerHeight]="'auto'"
+    [rowHeight]="'auto'"
+    [rows]='cps'>
+    [loadingIndicator]="loadingIndicator"
+  </ngx-datatable>
+
 </div>

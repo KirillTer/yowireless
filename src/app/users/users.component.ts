@@ -8,10 +8,24 @@ import {DataService} from "../../services/services";
 })
 export class UsersComponent implements OnInit {
   users;
+  usersColumns;
   currentUser;
+  newUserPannelShown: boolean;
 
   constructor(private data: DataService, ) {
     this.currentUser =[];
+    this.usersColumns =[
+      { prop: 'id', name: 'id' },
+      { prop: 'username', name: 'username' },
+      { prop: 'password', name: 'password' },
+      { prop: 'firstName', name: 'firstName' },
+      { prop: 'lastName', name: 'lastName' },
+      { prop: 'email', name: 'email' },
+      { prop: 'sendEmail', name: 'sendEmail' },
+      { prop: 'phoneNumber', name: 'phoneNumber' },
+      { prop: 'sendSms', name: 'sendSms' }
+    ];
+    this.newUserPannelShown = false;
   }
 
   ngOnInit() {
@@ -35,5 +49,17 @@ export class UsersComponent implements OnInit {
   private handleError_users(error) {
     console.log('Error during getting dashboard data!');
     console.log(error);
+  }
+
+  addUser() {
+    this.newUserPannelShown = true;
+  }
+
+  saveUser() {
+
+  }
+
+  deleteUser() {
+
   }
 }
