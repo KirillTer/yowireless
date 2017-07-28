@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
-import {NgModule} from '@angular/core';
+import {NgModule, TemplateRef} from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import {MdButtonModule, MdTableModule, MdInputModule, MdSelectModule, MdCheckboxModule} from '@angular/material';

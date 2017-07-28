@@ -25,7 +25,7 @@
     [loadingIndicator]="loadingIndicator"
   </ngx-datatable>
 
-  <div (show)="newUserPannelShown">
+  <div *ngIf="newUserPannelShown">
     <div>
       <label> username
         <input id="username" [(ngModel)]=currentUser.username type="text"/>
@@ -68,7 +68,7 @@
     </div>
   </div>
 
-  <button (click)="addUser()" (show)="!newUserPannelShown">add user</button>
-  <button (click)="saveUser()">save user</button>
-  <button (click)="deleteUser()">delete user</button>
+  <button (click)="addUser()" *ngIf="!newUserPannelShown">add user</button>
+  <button (click)="saveUser()" *ngIf="newUserPannelShown">save user</button>
+  <button (click)="deleteUser()" *ngIf="false">delete user</button>
 </div>
