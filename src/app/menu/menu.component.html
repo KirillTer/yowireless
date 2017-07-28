@@ -1,8 +1,67 @@
 <div class="menu">
     <div class="hamburger">MENU</div>
- <button class="menu-button">
-     <!--<i class="fa fa-bell" aria-hidden="true" style="font-size: 30px"></i>-->
+ <!--<button class="menu-button">
+    <i class="fa fa-bell" aria-hidden="true" style="font-size: 30px"></i>
     <img src="../../assets/icons/notification.svg" alt="" style="width: 30px; padding-top: 5px;">
-</button>
-<button class="menu-button"><i class="fa fa-sign-out" aria-hidden="true" style="font-size: 30px"></i></button>
+</button>-->
+    <div class="nav-item" [ngClass]="{ 'opened' : false }">
+      <button md-icon-button (click)="open($event)" class="menu-button">
+        <img src="../../assets/icons/notification.svg" alt="" style="width: 30px; padding-top: 5px;">
+      </button>
+
+      <div class="dropdown-menu">
+        <h4 class="menu-title">Notifications</h4>
+
+        <ul>
+          <li>
+            <a href="#">
+              <div class="content">
+                <span class="desc">This is a new message for my dear friend <strong>Rob</strong>.</span>
+                <span class="date">10 minutes ago</span>
+              </div>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <div class="content">
+                <span class="desc">Your site visits have increased <strong>15.5%</strong> more since the last week.</span>
+                <span class="date">23 minutes ago</span>
+              </div>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <div class="content">
+                <span class="desc">Server loaded by 98% please recover soon</span>
+                <span class="date">25 minutes ago</span>
+              </div>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+
+              <div class="content">
+                <span class="desc">We're looking to hire two more protypers to our team.</span>
+                <span class="date">32 minutes ago</span>
+              </div>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <div class="content">
+                <span class="desc">This is a new message for my dear friend <strong>Rob</strong>.</span>
+                <span class="date">58 minutes ago</span>
+              </div>
+            </a>
+          </li>
+        </ul>
+
+        <div class="menu-footer">
+          <a href="#">View all notifications</a>
+        </div>
+      </div>
+    </div>
+    <div class="nav-item" [ngClass]="{ 'opened' : false }">
+        <button class="menu-button" md-icon-button><i class="fa fa-sign-out" aria-hidden="true" style="font-size: 30px; margin-top: 7px;"></i></button>
+    </div>
 </div>
