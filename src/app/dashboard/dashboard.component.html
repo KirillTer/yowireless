@@ -28,7 +28,9 @@
   <!--<p-column field="lastHourNewUsersCount" header="lastHourNewUsersCount" [sortable]="true" [filter]="true"></p-column>-->
   <!--<p-column field="todayNewUsersCount" header="todayNewUsersCount" [sortable]="true" [filter]="true"></p-column>-->
 <!--</p-dataTable>-->
-
+<div class="dashboard-card">
+  <div class="dashboard-card-title"> Table 1</div>
+  <div class="dashboard-card-content">
   <ngx-datatable
     class='material'
     [columns]="cpServersColumns"
@@ -38,7 +40,11 @@
     [rows]='cpServers'>
     [loadingIndicator]="loadingIndicator"
   </ngx-datatable>
-
+  </div>
+</div>
+<div class="dashboard-card">
+  <div class="dashboard-card-title"> Table 2</div>
+  <div class="dashboard-card-content">
   <md-input-container style="width: 100%" class="mb-2">
     <input mdInput placeholder="Type to filter the host column..." required (keyup)='updateFilterHost($event)'>
   </md-input-container>
@@ -55,5 +61,6 @@
     [rows]='cps'>
     [loadingIndicator]="loadingIndicator"
   </ngx-datatable>
-
+  </div>
+</div>
 </div>

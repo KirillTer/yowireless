@@ -8,4 +8,23 @@
 .dashboard{
     margin-left: 220px;
     background: #bbc2ce;
+    font-family: 'Open sans', sans-serif;
+}
+.dashboard-card{
+    background: white;
+    margin: 20px;
+    padding-bottom: 10px;
+    box-shadow: 27px -21px 32px -18px rgba(179,179,179,1);
+}
+.dashboard-card-title{
+    text-align: left;
+    font-size: 22px;
+    padding: 20px;
+    padding-left: 0px;
+    background: #3c4e62;
+    color: white;
+    padding: 10px;
+}
+.dashboard-card-content{
+    padding: 10px;
 }

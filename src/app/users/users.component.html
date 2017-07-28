@@ -14,9 +14,12 @@
   <!--<p-column field="phoneNumber" header="phoneNumber" [sortable]="true" [filter]="true"></p-column>-->
   <!--<p-column field="sendSms" header="sendSms" [sortable]="true" [filter]="true"></p-column>-->
 <!--</p-dataTable>-->
-
+<div class="users-card">
+  <div class="users-card-header">
+    Users Table
+  </div>
   <ngx-datatable
-    class='material'
+    class='material users-table'
     [columns]="usersColumns"
     [columnMode]="'force'"
     [headerHeight]="'auto'"
@@ -24,51 +27,76 @@
     [rows]='users'>
     [loadingIndicator]="loadingIndicator"
   </ngx-datatable>
-
-  <div *ngIf="newUserPannelShown">
+</div>
+  <div *ngIf="newUserPannelShown" class="users-card">
+    <div class="users-card-header">Add new user</div>
+    <div class="new-user-card">
     <div>
-      <label> username
+      <!--<label> username
         <input id="username" [(ngModel)]=currentUser.username type="text"/>
-      </label>
+      </label>-->
+      <md-input-container>
+        <input mdInput type="text" placeholder="Username" [(ngModel)]="currentUser.username" id="username"/>
+     </md-input-container>
     </div>
     <div>
-      <label>password
+      <!--<label>password
         <input id="password" [(ngModel)]=currentUser.password type="password"/>
-      </label>
+      </label>-->
+       <md-input-container>
+        <input mdInput type="password" placeholder="Password" [(ngModel)]="currentUser.password" id="password"/>
+     </md-input-container>
     </div>
     <div>
-      <label>firstName
+      <!--<label>firstName
         <input id="firstName" [(ngModel)]=currentUser.firstName type="text"/>
-      </label>
+      </label>-->
+       <md-input-container>
+        <input mdInput type="text" placeholder="First Name" [(ngModel)]="currentUser.firstName" id="firstName"/>
+     </md-input-container>
     </div>
     <div>
-      <label>lastName
+      <!--<label>lastName
         <input id="lastName" [(ngModel)]=currentUser.lastName type="text"/>
-      </label>
+      </label>-->
+      <md-input-container>
+        <input mdInput type="text" placeholder="Last Name" [(ngModel)]="currentUser.lastName" id="lastName"/>
+     </md-input-container>
     </div>
     <div>
-      <label>email
+      <md-input-container>
+        <input mdInput type="email" placeholder="Email" [(ngModel)]="currentUser.email" id="email"/>
+     </md-input-container>
+      <!--<label>email
         <input id="email" [(ngModel)]=currentUser.email type="email"/>
-      </label>
+      </label>-->
     </div>
     <div>
-      <label>sendEmail
+      <md-checkbox [(ngModel)]="currentUser.sendEmail" color="primary" id="sendEmail">Send Email</md-checkbox>
+      <!--<label>sendEmail
         <input id="sendEmail" [(ngModel)]=currentUser.sendEmail type="checkbox"/>
-      </label>
+      </label>-->
     </div>
     <div>
-      <label>phoneNumber
+      <!--<label>phoneNumber
         <input id="phoneNumber" [(ngModel)]=currentUser.phoneNumber type="text"/>
-      </label>
+      </label>-->
+       <md-input-container>
+        <input mdInput type="text" placeholder="Phone Number" [(ngModel)]="currentUser.phoneNumber" id="phoneNumber"/>
+     </md-input-container>
     </div>
     <div>
-      <label>sendSms
+      <!--<label>sendSms
         <input id="sendSms" [(ngModel)]=currentUser.sendSms type="checkbox"/>
-      </label>
+      </label>-->
+      <md-checkbox [(ngModel)]="currentUser.sendSms" color="primary" id="sendSms">Send Email</md-checkbox>
+    </div>
+     <br>
+   <!-- <button (click)="saveUser()" *ngIf="newUserPannelShown">save user</button>-->
+   <div><button md-raised-button color="primary" (click)="saveUser()" type="button" *ngIf="newUserPannelShown" class="users-button">Save User</button></div>
     </div>
   </div>
-
-  <button (click)="addUser()" *ngIf="!newUserPannelShown">add user</button>
-  <button (click)="saveUser()" *ngIf="newUserPannelShown">save user</button>
+  <button md-raised-button color="primary" (click)="addUser()" type="button" *ngIf="!newUserPannelShown" class="users-button">Add User</button>
+  <!--<button (click)="addUser()" *ngIf="!newUserPannelShown">add user</button>-->
   <button (click)="deleteUser()" *ngIf="false">delete user</button>
 </div>

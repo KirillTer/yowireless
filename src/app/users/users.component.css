@@ -1,3 +1,28 @@
 .users{
     margin-left: 220px;
+    font-family: 'Open sans', sans-serif;
+}
+.users-card{
+    background: white;
+    margin: 20px;
+    padding-bottom: 10px;
+    box-shadow: 27px -21px 32px -18px rgba(179,179,179,1); 
+}
+.users-card-header{
+    text-align: left;
+    font-size: 22px;
+    padding: 20px;
+    padding-left: 0px;
+    background: #3c4e62;
+    color: white;
+    padding: 10px;
+}
+.users-button{
+    margin-left: 20px;
+}
+.new-user-card{
+    padding: 10px;
+}
+.users-table{
+    padding: 10px;
 }
