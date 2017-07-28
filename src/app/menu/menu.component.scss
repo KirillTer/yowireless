@@ -113,13 +113,14 @@ background: transparent;
           }
           .menu-footer {
             background: #3c4e62;
-            border-top: 1px solid #fff;
+            border-top: 1px solid rgba(#fff,.1);
             button {
               color: #fff;
               background: transparent;
               border: none !important;
               &:hover {
                 color: rgba(#fff,.8);
+                cursor: pointer;
               }
             }
           }
@@ -132,9 +133,9 @@ background: transparent;
 
             > li {
               border-bottom: 1px solid rgba(#fff,.05);
-
-              &:last-child {
-                border-bottom: 0;
+              &:hover{
+                background-color: #5dade0;
+                cursor: pointer;
               }
               > button {
                 align-items: center;
@@ -144,6 +145,7 @@ background: transparent;
                 transition: background .2s;
                 background-color: transparent !important;
                 border: none !important;
+                cursor: pointer;
                 .content {
                   font-size: .85rem;
 
