@@ -13,11 +13,8 @@ export class MenuComponent implements OnInit {
   notifications = [];
 
   constructor(private data: DataService, private router: Router) {
-    this.notifications = [
-      {name: 'aaa', f: 'asd'},
-      {name: 'bba', f: 'asdas'},
-      {name: 'befba', f: 'asdas'}
-    ]
+    this.notifications = [];
+    this.refreshNotifications();
   }
 
   hideNotif(elToRemove) {
@@ -60,6 +57,25 @@ export class MenuComponent implements OnInit {
       {label: 'Users', routerLink: ['/users']},
       {label: 'Logout', routerLink: ['/logout']}
     ];
+  }
+
+  private refreshNotifications() {
+    this.data.getNotifications().subscribe(
+      data => this.handleData_notif(data),
+      error => this.handleError_notif(error),
+      () => console.log('Completed!')
+    );
+  }
+
+  private handleData_notif(data: any | any) {
+    if (data.result = 'OK') {
+      this.notifications = data.payload;
+      console.log(this.notifications);
+    }
+  }
+
+  private handleError_notif(error: any) {
+    console.log('error getting notifications');
   }
 
   logout() {

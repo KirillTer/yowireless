@@ -7,6 +7,19 @@
     }
 }
 
+.notif_critical {
+  background: brown;
+}
+.notif_error {
+  background: red;
+}
+.notif_warning {
+  background: darkorange;
+}
+.notif_info {
+  background: green;
+}
+
 .menu{
 background: white;
 position: fixed;
@@ -19,8 +32,8 @@ justify-content: flex-end;
 border-bottom: 1px solid #dfe4ed;
 }
 .menu-button{
-border:none; 
-background: transparent; 
+border:none;
+background: transparent;
  color: black;
 }
 .hamburger{
@@ -133,7 +146,7 @@ background: transparent;
                 border: none !important;
                 .content {
                   font-size: .85rem;
-                  
+
                   .desc {
                     display: block;
                   }
