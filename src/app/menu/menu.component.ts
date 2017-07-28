@@ -9,11 +9,32 @@ import {Router} from "@angular/router";
   styleUrls: ['./menu.component.scss']
 })
 export class MenuComponent implements OnInit {
-  @Input() openedSidebar: boolean = false;
-
-  constructor(private data: DataService, private router: Router) { }
-
   items: MenuItem[];
+  notifications = [];
+
+  constructor(private data: DataService, private router: Router) {
+    this.notifications = [
+      {name: 'aaa', f: 'asd'},
+      {name: 'bba', f: 'asdas'},
+      {name: 'befba', f: 'asdas'}
+    ]
+  }
+
+  hideNotif(elToRemove) {
+    this.notifications = this.notifications.filter(function (el) {
+      return elToRemove.name != el.name;
+    });
+    if (this.notifications.length == 0){
+      document.getElementById('overlay').click();
+    }
+  }
+
+  hideAllNotif(){
+    for (let i = this.notifications.length - 1; i >= 0; i--) {
+      this.hideNotif(this.notifications[i]);
+    }
+  }
+
   open(event) {
     let clickedComponent = event.target.closest('.nav-item');
     let items = clickedComponent.parentElement.children;

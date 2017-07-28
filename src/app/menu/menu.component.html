@@ -12,57 +12,24 @@
       <div class="dropdown-menu">
         <h4 class="menu-title">Notifications</h4>
 
-        <ul>
-          <li>
-            <button>
-              <div class="content">
-                <span class="desc">This is button new message for my dear friend <strong>Rob</strong>.</span>
-                <span class="date">10 minutes ago</span>
-              </div>
-            </button>
-          </li>
-          <li>
+        <ul *ngFor="let notif of notifications">
+          <li (click)="hideNotif(notif)" *ngIf="!notif.hide">
             <button >
               <div class="content">
-                <span class="desc">Your site visits have increased <strong>15.5%</strong> more since the last week.</span>
-                <span class="date">23 minutes ago</span>
-              </div>
-            </button>
-          </li>
-          <li>
-            <button >
-              <div class="content">
-                <span class="desc">Server loaded by 98% please recover soon</span>
-                <span class="date">25 minutes ago</span>
-              </div>
-            </button>
-          </li>
-          <li>
-            <button >
-
-              <div class="content">
-                <span class="desc">We're looking to hire two more protypers to our team.</span>
-                <span class="date">32 minutes ago</span>
-              </div>
-            </button>
-          </li>
-          <li>
-            <button >
-              <div class="content">
-                <span class="desc">This is button new message for my dear friend <strong>Rob</strong>.</span>
-                <span class="date">58 minutes ago</span>
+                <span class="desc">{{notif.name}}</span>
+                <span class="date">notif.f</span>
               </div>
             </button>
           </li>
         </ul>
 
         <div class="menu-footer">
-          <button >View all notifications</button>
+          <button (click)="hideAllNotif()">Mark all as read</button>
         </div>
       </div>
     </div>
     <div class="nav-item" [ngClass]="{ 'opened' : false }">
         <button class="menu-button" md-icon-button><i class="fa fa-sign-out" aria-hidden="true" style="font-size: 30px; margin-top: 7px;"></i></button>
     </div>
-    <div class="items-overlay" (click)="close($event)"></div>
+    <div id="overlay" class="items-overlay" (click)="close($event)"></div>
 </div>
