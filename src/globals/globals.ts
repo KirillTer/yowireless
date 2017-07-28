@@ -6,8 +6,8 @@ export class Globals {
   static COOK_USERTOKEN: string = 'ywm_token';
   static LOGGEDINUSER: any;
 
-  // static SERVERADDR: string = 'https://ikea-cp-mon.net/server';
-  static SERVERADDR: string = 'http://localhost:9300';
+   static SERVERADDR: string = 'https://ikea-cp-mon.net/server';
+  //static SERVERADDR: string = 'http://localhost:9300';
 
   static getHeaders() {
     return new Headers({

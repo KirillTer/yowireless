@@ -6,13 +6,14 @@
 </button>-->
     <div class="nav-item" [ngClass]="{ 'opened' : false }">
       <button md-icon-button (click)="open($event)" class="menu-button">
+          <span class="notif-number" *ngIf="notifications.length > 0"><div>{{notifications.length}}</div></span>
         <img src="../../assets/icons/notification.svg" alt="" style="width: 30px; padding-top: 5px;">
       </button>
 
       <div class="dropdown-menu">
         <h4 class="menu-title">Notifications</h4>
-
-        <ul *ngFor="let notif of notifications">
+        <div *ngIf="notifications.length > 0">
+         <ul *ngFor="let notif of notifications">
           <li (click)="hideNotif(notif)" *ngIf="!notif.hide" [ngClass]="{'notif_critical': notif.type=='CRITICAL', 'notif_error': notif.type=='ERROR', 'notif_warning': notif.type=='WARNING', 'notif_info': notif.type=='INFO'}">
             <button >
               <div class="content">
@@ -22,8 +23,13 @@
             </button>
           </li>
         </ul>
+        </div>
+        <div *ngIf="notifications.length == 0" style="color: white; text-align: center; margin-top: 10px; margin-bottom: 10px;">
+          No notifications.
+        </div>
 
-        <div class="menu-footer">
+
+        <div class="menu-footer" *ngIf="notifications.length > 0">
           <button (click)="hideAllNotif()">Mark all as read</button>
         </div>
       </div>

@@ -94,9 +94,11 @@
     </div>
      <br>
    <!-- <button (click)="saveUser()" *ngIf="newUserPannelShown">save user</button>-->
-   <div><button md-raised-button color="primary" (click)="saveUser()" type="button" *ngIf="newUserPannelShown" class="users-button">Save User</button></div>
-   <div><button md-raised-button color="primary" (click)="cancelAddUser()" type="button" *ngIf="newUserPannelShown" class="users-button">Cancel</button></div>
-    </div>
+   <div>
+     <button md-raised-button color="primary" (click)="cancelAddUser()" type="button" *ngIf="newUserPannelShown" class="users-button" style="margin-left: 0;">Cancel</button>
+     <button md-raised-button color="primary" (click)="saveUser()" type="button" *ngIf="newUserPannelShown" class="users-button" style="margin-left: 0; background: green;">Save User</button>
+  </div>
+     </div>
   </div>
   <button md-raised-button color="primary" (click)="addUser()" type="button" *ngIf="!newUserPannelShown" class="users-button">Add User</button>
   <!--<button (click)="addUser()" *ngIf="!newUserPannelShown">add user</button>-->

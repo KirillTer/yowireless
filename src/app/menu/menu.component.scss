@@ -36,6 +36,23 @@ border:none;
 background: transparent;
  color: black;
 }
+.notif-number{
+  border-radius: 100%;
+  border: 9px solid red;
+  position: absolute;
+  top: 6px;
+  left: 22px;
+  div{
+    position: absolute;
+    top: -20px;
+    left: -8px;
+    width: 15px;
+    text-align: center;
+    color: #fff;
+    font-family: 'Open sans', sans-serif;
+
+  }
+}
 .hamburger{
     display: none;
     position: absolute;
@@ -124,20 +141,20 @@ background: transparent;
               }
             }
           }
-          > ul {
+           ul {
             list-style-type: none;
             margin: 0;
             max-height: 241px;
             overflow: auto;
             padding: 0;
 
-            > li {
+             li {
               border-bottom: 1px solid rgba(#fff,.05);
               &:hover{
                 background-color: #5dade0;
                 cursor: pointer;
               }
-              > button {
+               button {
                 align-items: center;
                 color: #fff;
                 display: flex;
@@ -187,9 +204,9 @@ background: transparent;
             &:before {
               display: none;
             }
-            > ul {
-              > li {
-                > button {
+             ul {
+               li {
+                 button {
                   padding-top: 8px;
                   padding-bottom: 8px;
                   background-color: transparent !important;

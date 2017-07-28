@@ -19,7 +19,7 @@ export class MenuComponent implements OnInit {
 
   hideNotif(elToRemove) {
     this.notifications = this.notifications.filter(function (el) {
-      return elToRemove.name != el.name;
+      return elToRemove.id != el.id;
     });
     if (this.notifications.length == 0){
       document.getElementById('overlay').click();
