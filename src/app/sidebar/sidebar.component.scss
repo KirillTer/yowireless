@@ -13,18 +13,18 @@
   width: $sidebar-width;
   will-change: left, right;
   z-index: 997;
-  @media #{$max991} {
+  /*@media #{$max991} {
     left: -($sidebar-width);
     //z-index: 9997;
-  }
+  }*/
 
   .rtl & {
     left: auto;
     right: 0;
-    @media #{$max991} {
+    /*@media #{$max991} {
       left: auto;
       right: -($sidebar-width);
-    }
+    }*/
   }
   .site-sidebar {
     display: flex;

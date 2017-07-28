@@ -1,0 +1,12 @@
+.menu{
+background: white;
+position: relative;
+height: 50px;
+display: flex;
+justify-content: flex-end
+}
+.menu-button{
+border:none; 
+background: transparent; 
+ color: #3c4e62;
+}

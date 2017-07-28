@@ -1,8 +1,9 @@
 <sidebar></sidebar>
 <div class="settings">
     <app-menu></app-menu>
-  <div class="settings-title">Email settings</div>
-<div >
+ <div class="setings-card">
+   <div class="settings-title">Email settings</div>
+<div>
   <!--<label> username
     <input [(ngModel)]="mail.username" name="mail_username" type="text"/>
   </label>-->
@@ -51,6 +52,8 @@
 </div>
 
 <br/>
+</div> 
+ <div class="setings-card">
 <div class="settings-title">Sms api settings</div>
 <div>
   <!--<label> sms api
@@ -83,4 +86,5 @@
 <div>
   <button md-raised-button color="primary" (click)="saveSms()" type="button" class="save-settings">Save sms settings</button>
 </div>
+ </div>
 </div>

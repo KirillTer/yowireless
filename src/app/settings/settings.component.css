@@ -1,7 +1,13 @@
 .settings{
     margin-left: 220px;
-    background: #fff;
+    /*background: #fff;*/
     font-family: 'Open sans', sans-serif;
+}
+.setings-card{
+    background: white;
+    margin: 20px;
+    padding-bottom: 10px;
+    box-shadow: 27px -21px 32px -18px rgba(179,179,179,1);
 }
 .settings-title{
     text-align: left;
