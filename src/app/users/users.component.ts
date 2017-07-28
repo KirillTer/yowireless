@@ -15,15 +15,15 @@ export class UsersComponent implements OnInit {
   constructor(private data: DataService, ) {
     this.currentUser =[];
     this.usersColumns =[
-      { prop: 'id', name: 'id' },
-      { prop: 'username', name: 'username' },
-      { prop: 'password', name: 'password' },
-      { prop: 'firstName', name: 'firstName' },
-      { prop: 'lastName', name: 'lastName' },
-      { prop: 'email', name: 'email' },
-      { prop: 'sendEmail', name: 'sendEmail' },
-      { prop: 'phoneNumber', name: 'phoneNumber' },
-      { prop: 'sendSms', name: 'sendSms' }
+      { prop: 'id', name: 'id' , width: 60, minWidth: 60, maxWidth: 60, resizable: false, canAutoResize: false},
+      { prop: 'username', name: 'username' , width: 120, minWidth: 120, maxWidth: 120, resizable: false, canAutoResize: false},
+      { prop: 'password', name: 'password' , width: 120, minWidth: 120, maxWidth: 120, resizable: false, canAutoResize: false},
+      { prop: 'firstName', name: 'firstName' , width: 120, minWidth: 120, maxWidth: 120, resizable: false, canAutoResize: false},
+      { prop: 'lastName', name: 'lastName' , width: 120, minWidth: 120, maxWidth: 120, resizable: false, canAutoResize: false},
+      { prop: 'email', name: 'email' , width: 240, minWidth: 240, maxWidth: 240, resizable: false, canAutoResize: false},
+      { prop: 'sendEmail', name: 'sendEmail' , width: 120, minWidth: 120, maxWidth: 120, resizable: false, canAutoResize: false},
+      { prop: 'phoneNumber', name: 'phoneNumber' , width: 160, minWidth: 160, maxWidth: 160, resizable: false, canAutoResize: false},
+      { prop: 'sendSms', name: 'sendSms', width: 120, minWidth: 120, maxWidth: 120, resizable: false, canAutoResize: false }
     ];
     this.newUserPannelShown = false;
   }
