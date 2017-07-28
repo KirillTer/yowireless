@@ -6,10 +6,14 @@
 
 .menu{
 background: white;
-position: relative;
+position: fixed;
+z-index: 9999;
+width: calc(100% - 220px);
+top: 0;
 height: 50px;
 display: flex;
-justify-content: flex-end
+justify-content: flex-end;
+border-bottom: 1px solid #dfe4ed;
 }
 .menu-button{
 border:none; 
