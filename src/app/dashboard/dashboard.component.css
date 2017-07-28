@@ -1,3 +1,8 @@
+@media (max-width: 991px) {
+    .dashboard[_ngcontent-c1]{
+        margin-left: 0 !important;
+    }
+}
 .second-table{
     margin-top: 50px;
     display:block;
@@ -27,13 +32,4 @@
 }
 .dashboard-card-content{
     padding: 10px;
-}
-.ngx-datatable.material .datatable-header{
-    overflow: visible
-}
-.ngx-datatable{
-    overflow: scroll;
-}
-.ngx-datatable .datatable-header{
-    width: 120%;
 }

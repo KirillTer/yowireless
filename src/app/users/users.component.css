@@ -1,3 +1,8 @@
+@media (max-width: 991px) {
+    .users[_ngcontent-c1]{
+        margin-left: 0 !important;
+    }
+}
 .users{
     margin-left: 220px;
     font-family: 'Open sans', sans-serif;
