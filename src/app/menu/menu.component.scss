@@ -2,6 +2,9 @@
     .hamburger{
         display: flex !important;
     }
+    .menu{
+      width: 100% !important;
+    }
 }
 
 .menu{
@@ -97,10 +100,11 @@ background: transparent;
           }
           .menu-footer {
             background: #3c4e62;
-
-            a {
+            border-top: 1px solid #fff;
+            button {
               color: #fff;
-              
+              background: transparent;
+              border: none !important;
               &:hover {
                 color: rgba(#fff,.8);
               }
@@ -119,41 +123,14 @@ background: transparent;
               &:last-child {
                 border-bottom: 0;
               }
-              > a {
+              > button {
                 align-items: center;
                 color: #fff;
                 display: flex;
                 padding: 11px;
                 transition: background .2s;
-
-                &:hover {
-                  background: main-color(A100);
-                }
-                .mat-icon {
-                  background: rgba(#fff,.1);
-                  border-radius: 50%;
-                  font-size: 26px;
-                  height: auto;
-                  margin-right: 11px;
-                  padding: 7px;
-                  width: auto;
-
-                  .rtl & {
-                    margin-right: 0;
-                    margin-left: 11px;
-                  }
-                }
-                .avatar {
-                  border-radius: 50%;
-                  height: 40px;
-                  margin-right: 11px;
-                  width: 40px;
-
-                  .rtl & {
-                    margin-right: 0;
-                    margin-left: 11px;
-                  }
-                }
+                background-color: transparent !important;
+                border: none !important;
                 .content {
                   font-size: .85rem;
                   
@@ -197,9 +174,11 @@ background: transparent;
             }
             > ul {
               > li {
-                > a {
+                > button {
                   padding-top: 8px;
                   padding-bottom: 8px;
+                  background-color: transparent !important;
+                  border: none !important;
 
                   .fa {
                     margin-right: 11px;
