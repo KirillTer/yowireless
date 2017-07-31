@@ -56,6 +56,8 @@ justify-content: flex-end;
       left: 0;
       top: 50px;
       padding: 0 !important;
+      border-right: 2px solid #dfe4ed;
+      border-bottom: 2px solid #dfe4ed;
       .menu-item.active{
         .item-link{
           color: #fff !important;
