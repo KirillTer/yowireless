@@ -34,7 +34,13 @@
 .dashboard-card-content{
     padding: 10px;
 }
-/deep/ .col_red {
+/deep/ .good {
   /*color: red;*/
-  background: red;
+  color: green;
+}
+/deep/ .bad{
+ color: red;
+}
+/deep/ .medium{
+    color: orange;
 }
