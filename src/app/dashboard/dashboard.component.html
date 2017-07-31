@@ -15,13 +15,13 @@
     [scrollbarH]="true"
     [loadingIndicator]="loadingIndicator">
     <ngx-datatable-column name="host" width="110" minWidth="110" maxWidth="110"></ngx-datatable-column>
-      <ngx-datatable-column name="nginxState" [cellClass]="serverState" width="120" minWidth="120" maxWidth="120"></ngx-datatable-column>
-      <ngx-datatable-column name="postgresqlState" [cellClass]="serverState" width="160" minWidth="160" maxWidth="160"></ngx-datatable-column>
-      <ngx-datatable-column name="radiusState" [cellClass]="serverState" width="140" minWidth="140" maxWidth="140"></ngx-datatable-column>
-      <ngx-datatable-column name="replicationState" [cellClass]="serverState" width="160" minWidth="160" maxWidth="160"></ngx-datatable-column>
+      <ngx-datatable-column name="nginx" prop="nginxState" [cellClass]="serverState" width="120" minWidth="120" maxWidth="120"></ngx-datatable-column>
+      <ngx-datatable-column name="postgresql" prop="postgresqlState" [cellClass]="serverState" width="160" minWidth="160" maxWidth="160"></ngx-datatable-column>
+      <ngx-datatable-column name="radius" prop="radiusState" [cellClass]="serverState" width="140" minWidth="140" maxWidth="140"></ngx-datatable-column>
+      <ngx-datatable-column name="replication" prop="replicationState" [cellClass]="serverState" width="160" minWidth="160" maxWidth="160"></ngx-datatable-column>
       <ngx-datatable-column name="cpAppState" [cellClass]="serverState" width="140" minWidth="140" maxWidth="140"></ngx-datatable-column>
-      <ngx-datatable-column name="Free space" prop="cpSpace.freeGB" [cellClass]="freeSpace" width="130" minWidth="130" maxWidth="130"></ngx-datatable-column>
-      <ngx-datatable-column name="certificateExpireDate" width="200" minWidth="200" maxWidth="200"></ngx-datatable-column>
+      <ngx-datatable-column name="freeSpace" prop="cpSpace.freeGB" [cellClass]="freeSpace" width="130" minWidth="130" maxWidth="130"></ngx-datatable-column>
+      <ngx-datatable-column name="cert expires" prop="certificateExpireDate" width="200" minWidth="200" maxWidth="200"></ngx-datatable-column>
   </ngx-datatable>
   </div>
 </div>
