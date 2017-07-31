@@ -8,16 +8,36 @@
 }
 
 .notif_critical {
-  background: brown;
+  background:	#5D0D0D;
+  border: 5px solid #3C0404;
+  &:hover{
+    background-color: #3C0404;
+    cursor: pointer;
+}
 }
 .notif_error {
-  background: red;
+  background: #dc143c;
+  border: 5px solid #8F0621;
+    &:hover{
+    background-color: #8F0621;
+    cursor: pointer;
+}
 }
 .notif_warning {
-  background: darkorange;
+  background: #FF7F00;
+  border: 5px solid #A65C00;
+  &:hover{
+    background-color: #A65C00;
+    cursor: pointer;
+}
 }
 .notif_info {
-  background: green;
+  background: #0A4A0A;
+  border: 5px solid #133813;
+    &:hover{
+    background-color: #133813;
+    cursor: pointer;
+}
 }
 .menu{
 background: white;
@@ -28,7 +48,6 @@ top: 0;
 height: 50px;
 display: flex;
 justify-content: flex-end;
-border-bottom: 1px solid #dfe4ed;
 
   /deep/ .main-menu{
     ul{
@@ -75,6 +94,7 @@ background: transparent;
     position: absolute;
     left: 15px;
     top: 15px;
+    cursor: pointer;
 }
 .nav-item{
     &.opened{
@@ -146,7 +166,7 @@ background: transparent;
             line-height: 1.3;
           }
           .menu-footer {
-            background: #3c4e62;
+            background: #36475a;
             border-top: 1px solid rgba(#fff,.1);
             button {
               color: #fff;
@@ -166,11 +186,8 @@ background: transparent;
             padding: 0;
 
              li {
-              border-bottom: 1px solid rgba(#fff,.05);
-              &:hover{
-                background-color: #5dade0;
-                cursor: pointer;
-              }
+              //border-bottom: 1px solid rgba(#fff,.05);
+              transition: all 0.2s;
                button {
                 align-items: center;
                 color: #fff;
