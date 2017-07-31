@@ -14,17 +14,25 @@ export class UsersComponent implements OnInit {
   loadingIndicator: boolean = true;
 
   constructor(private data: DataService) {
-    this.currentUser = {};
+    this.currentUser = {
+      username: '',
+      firstName: '',
+      lastName: '',
+      email: '',
+      sendEmail: false,
+      phoneNumber: '',
+      sendSms: false
+    };
     this.usersColumns =[
       { prop: 'id', name: 'id' , width: 60, minWidth: 60, maxWidth: 60, resizable: false, canAutoResize: false},
-      { prop: 'username', name: 'username' , width: 120, minWidth: 120, maxWidth: 120, resizable: false, canAutoResize: false},
+      { prop: 'username', name: 'username' , width: 200, minWidth: 200, maxWidth: 200, resizable: false, canAutoResize: false},
       // { prop: 'password', name: 'password' , width: 120, minWidth: 120, maxWidth: 120, resizable: false, canAutoResize: false},
-      { prop: 'firstName', name: 'firstName' , width: 120, minWidth: 120, maxWidth: 120, resizable: false, canAutoResize: false},
-      { prop: 'lastName', name: 'lastName' , width: 120, minWidth: 120, maxWidth: 120, resizable: false, canAutoResize: false},
-      { prop: 'email', name: 'email' , width: 240, minWidth: 240, maxWidth: 240, resizable: false, canAutoResize: false},
-      { prop: 'sendEmail', name: 'sendEmail' , width: 120, minWidth: 120, maxWidth: 120, resizable: false, canAutoResize: false},
-      { prop: 'phoneNumber', name: 'phoneNumber' , width: 160, minWidth: 160, maxWidth: 160, resizable: false, canAutoResize: false},
-      { prop: 'sendSms', name: 'sendSms', width: 120, minWidth: 120, maxWidth: 120, resizable: false, canAutoResize: false }
+      { prop: 'firstName', name: 'first name' , width: 140, minWidth: 140, maxWidth: 140, resizable: false, canAutoResize: false},
+      { prop: 'lastName', name: 'last name' , width: 140, minWidth: 140, maxWidth: 140, resizable: false, canAutoResize: false},
+      { prop: 'email', name: 'email' , width: 340, minWidth: 340, maxWidth: 340, resizable: false, canAutoResize: false},
+      { prop: 'sendEmail', name: 'send email' , width: 140, minWidth: 140, maxWidth: 140, resizable: false, canAutoResize: false},
+      { prop: 'phoneNumber', name: 'phone number' , width: 180, minWidth: 180, maxWidth: 180, resizable: false, canAutoResize: false},
+      { prop: 'sendSms', name: 'send sms', width: 140, minWidth: 140, maxWidth: 140, resizable: false, canAutoResize: false }
     ];
     this.newUserPannelShown = false;
   }
@@ -75,7 +83,9 @@ export class UsersComponent implements OnInit {
   }
 
   private handleData_createusers(data: any) {
-
+    if (data.result == 'OK') {
+      this.users = data.payload;
+    }
   }
 
   private handleError_createusers(error: any) {

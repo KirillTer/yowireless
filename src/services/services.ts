@@ -131,4 +131,12 @@ export class DataService {
       .map(this.extractData)
       .catch(this.handleError);
   }
+
+  deleteNotification(elToRemove: any) {
+    this.loadToken();
+    let headers = new Headers({'X-AUTH-TOKEN': Globals.USERTOKEN});
+    return this.http.post(Globals.SERVERADDR + '/deleteNotification', elToRemove,{headers: headers})
+      .map(this.extractData)
+      .catch(this.handleError);
+  }
 }

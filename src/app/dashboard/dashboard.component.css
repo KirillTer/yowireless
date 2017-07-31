@@ -34,3 +34,7 @@
 .dashboard-card-content{
     padding: 10px;
 }
+/deep/ .col_red {
+  /*color: red;*/
+  background: red;
+}

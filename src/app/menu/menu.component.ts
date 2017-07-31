@@ -13,12 +13,18 @@ export class MenuComponent implements OnInit {
   notifications = [];
   showMenu: boolean = false;
 
+
   constructor(private data: DataService, private router: Router) {
     this.notifications = [];
     this.refreshNotifications();
   }
 
   hideNotif(elToRemove) {
+    this.data.deleteNotification(elToRemove).subscribe(
+      data => this.handleData_delnotif(data),
+      error => this.handleError_delnotif(error),
+      () => console.log('Completed!'));
+
     this.notifications = this.notifications.filter(function (el) {
       return elToRemove.id != el.id;
     });
@@ -99,5 +105,16 @@ export class MenuComponent implements OnInit {
 
   private handleData_logout(data: any | any) {
     this.router.navigate(['/login']);
+  }
+
+  private handleData_delnotif(data: any) {
+    if (data.result = 'OK') {
+      console.log(data);
+    }
+  }
+
+  private handleError_delnotif(error: any) {
+    console.log(error);
+    console.log('error during deleting notification');
   }
 }

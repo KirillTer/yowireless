@@ -1,35 +1,9 @@
 <sidebar></sidebar>
-<!--<app-menu></app-menu>-->
 
 <div class="dashboard">
   <app-menu></app-menu>
-<!--<p-dataTable [value]="cpServers" class="first-table" responsive="true">-->
-<!--<p-header>First Table</p-header>-->
-  <!--<p-column field="host" header="host" [sortable]="true" [filter]="true"></p-column>-->
-  <!--<p-column field="nginxState" header="nginxState" [sortable]="true" [filter]="true"></p-column>-->
-  <!--<p-column field="postgresqlState" header="postgresqlState" [sortable]="true" [filter]="true"></p-column>-->
-  <!--<p-column field="radiusState" header="radiusState" [sortable]="true" [filter]="true"></p-column>-->
-  <!--<p-column field="replicationState" header="replicationState" [sortable]="true" [filter]="true"></p-column>-->
-  <!--<p-column field="cpAppState" header="cpAppState" [sortable]="true" [filter]="true"></p-column>-->
-  <!--<p-column field="cpSpace.totalGB" header="totalSpace"[sortable]="true" [filter]="true" ></p-column>-->
-  <!--<p-column field="cpSpace.freeGB" header="freeSpace" [sortable]="true" [filter]="true"></p-column>-->
-  <!--<p-column field="cpSpace.availableSpace" header="availableSpace" [sortable]="true" [filter]="true"></p-column>-->
-  <!--<p-column field="certificateExpireDate" header="certificateExpireDate" [sortable]="true" [filter]="true"></p-column>-->
-
-<!--</p-dataTable>-->
-
-<!--<p-dataTable class="second-table" [value]="cps" sortMode="multiple" responsive="true">-->
-  <!--<p-header>Second Table</p-header>-->
-  <!--<p-column field="host" header="host" [sortable]="true" [filter]="true"></p-column>-->
-  <!--<p-column field="nasid" header="nasid" [sortable]="true" [filter]="true"></p-column>-->
-  <!--<p-column field="localTime" header="localTime" [sortable]="true" [filter]="true"></p-column>-->
-  <!--<p-column field="lastHourSessionsCount" header="lastHourSessionsCount"  [sortable]="true" [filter]="true"></p-column>-->
-  <!--<p-column field="todaySessionsCount" header="todaySessionsCount" [sortable]="true" [filter]="true"></p-column>-->
-  <!--<p-column field="lastHourNewUsersCount" header="lastHourNewUsersCount" [sortable]="true" [filter]="true"></p-column>-->
-  <!--<p-column field="todayNewUsersCount" header="todayNewUsersCount" [sortable]="true" [filter]="true"></p-column>-->
-<!--</p-dataTable>-->
 <div class="dashboard-card">
-  <div class="dashboard-card-title"> Table 1</div>
+  <div class="dashboard-card-title"> CP server</div>
   <div class="dashboard-card-content">
   <ngx-datatable
     class='material'
@@ -44,12 +18,12 @@
   </div>
 </div>
 <div class="dashboard-card">
-  <div class="dashboard-card-title"> Table 2</div>
+  <div class="dashboard-card-title"> Captive portals</div>
   <div class="dashboard-card-content">
-  <md-input-container style="width: 27%" class="mb-2">
+  <md-input-container style="width=27%" class="mb-2">
     <input mdInput placeholder="Type to filter the host column..." required (keyup)='updateFilterHost($event)'>
   </md-input-container>
-  <md-input-container style="width: 27%" class="mb-2">
+  <md-input-container style="width=27%" class="mb-2">
     <input mdInput placeholder="Type to filter the nasid column..." required (keyup)='updateFilterNasid($event)'>
   </md-input-container>
 
@@ -63,6 +37,22 @@
     [scrollbarH]="true"
     [loadingIndicator]="loadingIndicator">
   </ngx-datatable>
+
+    <ngx-datatable
+      class='material'
+      [rows]='cps'
+      [columnMode]="'force'"
+      [headerHeight]="'auto'"
+      [rowHeight]="'auto'"
+      [scrollbarH]="true">
+      <ngx-datatable-column name="Host" ></ngx-datatable-column>
+      <ngx-datatable-column name="nasid" ></ngx-datatable-column>
+      <ngx-datatable-column name="localTime" ></ngx-datatable-column>
+      <ngx-datatable-column name="lastHourSessionsCount" [cellClass]="getCellClass"></ngx-datatable-column>
+      <ngx-datatable-column name="todaySessionsCount" [cellClass]="getCellClass"></ngx-datatable-column>
+      <ngx-datatable-column name="lastHourNewUsersCount" [cellClass]="getCellClass"></ngx-datatable-column>
+      <ngx-datatable-column name="todayNewUsersCount" [cellClass]="getCellClass"></ngx-datatable-column>
+    </ngx-datatable>
   </div>
 </div>
 </div>

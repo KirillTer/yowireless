@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {DataService} from "../../services/services";
 import {DatePipe} from "@angular/common";
 
@@ -19,24 +19,28 @@ export class DashboardComponent implements OnInit {
   ngOnInit() {
     this.refreshDashboard();
     this.cpServersColumns = [
-      { prop: 'host', name: 'host', width: 100, minWidth: 100, maxWidth: 100, resizable: false, canAutoResize: false, draggable: false },
-      { prop: 'nginxState', name: 'nginx', width: 100, minWidth: 100, maxWidth: 100, resizable: false, canAutoResize: false },
-      { prop: 'postgresqlState', name: 'postgresql', width: 120, minWidth: 120, maxWidth: 120, resizable: false, canAutoResize: false },
-      { prop: 'radiusState', name: 'radius', width: 100, minWidth: 100, maxWidth: 100, resizable: false, canAutoResize: false },
+      { prop: 'host', name: 'host', width: 110, minWidth: 110, maxWidth: 110, resizable: false, canAutoResize: false, draggable: false, cellClass: 'getClass' },
+      { prop: 'nginxState', name: 'nginx', width: 110, minWidth: 110, maxWidth: 110, resizable: false, canAutoResize: false },
+      { prop: 'postgresqlState', name: 'postgresql', width: 130, minWidth: 130, maxWidth: 130, resizable: false, canAutoResize: false },
+      { prop: 'radiusState', name: 'radius', width: 110, minWidth: 110, maxWidth: 110, resizable: false, canAutoResize: false },
       { prop: 'replicationState', name: 'replication', width: 130, minWidth: 130, maxWidth: 130, resizable: false, canAutoResize: false },
       { prop: 'cpAppState', name: 'CP app', width: 120, minWidth: 120, maxWidth: 120, resizable: false, canAutoResize: false },
-      { prop: 'cpSpace.freeGB', name: 'freeSpace', width: 120, minWidth: 120, maxWidth: 120, resizable: false, canAutoResize: false },
+      { prop: 'cpSpace.freeGB', name: 'frees space(GB)', width: 174, minWidth: 174, maxWidth: 174, resizable: false, canAutoResize: false },
       { prop: 'certificateExpireDate', name: 'cert expires', width: 140, minWidth: 140, maxWidth: 140, resizable: false, canAutoResize: false }
     ];
     this.cpsColumns = [
       { prop: 'host', name: 'host', width: 80, minWidth: 80, maxWidth: 80, resizable: false, canAutoResize: false, draggable: false },
       { prop: 'nasid', name: 'nasid', width: 140, minWidth: 140, maxWidth: 140, resizable: false, canAutoResize: false, draggable: false  },
-      { prop: 'localTime', name: 'localTime', width: 130, minWidth: 130, maxWidth: 130, resizable: false, canAutoResize: false, draggable: false  },
-      { prop: 'lastHourSessionsCount', name: 'lastHourSessionsCount', width: 220, minWidth: 220, maxWidth: 220, resizable: false, canAutoResize: false, draggable: false  },
-      { prop: 'todaySessionsCount', name: 'todaySessionsCount', width: 190, minWidth: 190, maxWidth: 190, resizable: false, canAutoResize: false, draggable: false  },
-      { prop: 'lastHourNewUsersCount', name: 'lastHourNewUsersCount', width: 220, minWidth: 220, maxWidth: 220, resizable: false, canAutoResize: false, draggable: false  },
-      { prop: 'todayNewUsersCount', name: 'todayNewUsersCount', width: 220, minWidth: 220, maxWidth: 220, resizable: false, canAutoResize: false, draggable: false  }
+      { prop: 'localTime', name: 'localt time', width: 130, minWidth: 130, maxWidth: 130, resizable: false, canAutoResize: false, draggable: false  },
+      { prop: 'lastHourSessionsCount', name: 'last hour sessions', width: 220, minWidth: 220, maxWidth: 220, resizable: false, canAutoResize: false, draggable: false  },
+      { prop: 'todaySessionsCount', name: 'today sessions', width: 190, minWidth: 190, maxWidth: 190, resizable: false, canAutoResize: false, draggable: false  },
+      { prop: 'lastHourNewUsersCount', name: 'last hour new users', width: 220, minWidth: 220, maxWidth: 220, resizable: false, canAutoResize: false, draggable: false  },
+      { prop: 'todayNewUsersCount', name: 'today new users', width: 220, minWidth: 220, maxWidth: 220, resizable: false, canAutoResize: false, draggable: false  }
     ];
+  }
+
+  getClass() {
+    console.log('called');
   }
 
   refreshDashboard() {
@@ -106,4 +110,19 @@ export class DashboardComponent implements OnInit {
     // update the rows
     this.cps = temp;
   }
+
+  getRowClass(row) {
+    return {
+      'age-is-ten': (row.age % 10) === 0
+    };
+  }
+
+  getCellClass({ row, column, value }): any {
+    console.log('called');
+    if (value == 0) {
+      return ' col_red ';
+    }
+  }
+
+  rows = [];
 }
