@@ -1,5 +1,9 @@
 <div class="menu">
-    <div class="hamburger">MENU</div>
+    <div class="hamburger" (click)="showMainMenu()">MENU</div>
+    <div class="accordion" [hidden]="!showMenu">
+      <main-menu class="main-menu">
+      </main-menu>
+    </div>
  <!--<button class="menu-button">
     <i class="fa fa-bell" aria-hidden="true" style="font-size: 30px"></i>
     <img src="../../assets/icons/notification.svg" alt="" style="width: 30px; padding-top: 5px;">

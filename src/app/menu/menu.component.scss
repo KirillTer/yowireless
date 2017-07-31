@@ -19,7 +19,6 @@
 .notif_info {
   background: green;
 }
-
 .menu{
 background: white;
 position: fixed;
@@ -30,6 +29,24 @@ height: 50px;
 display: flex;
 justify-content: flex-end;
 border-bottom: 1px solid #dfe4ed;
+
+  /deep/ .main-menu{
+    ul{
+      background: #fff;
+      position: absolute;
+      left: 0;
+      top: 50px;
+      padding: 0 !important;
+      .menu-item.active{
+        .item-link{
+          color: #fff !important;
+        }
+      }
+        .item-link{
+         color: #2e3d50 !important;
+      }
+    }
+  }
 }
 .menu-button{
 border:none;

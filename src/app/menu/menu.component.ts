@@ -11,6 +11,7 @@ import {Router} from "@angular/router";
 export class MenuComponent implements OnInit {
   items: MenuItem[];
   notifications = [];
+  showMenu: boolean = false;
 
   constructor(private data: DataService, private router: Router) {
     this.notifications = [];
@@ -31,7 +32,6 @@ export class MenuComponent implements OnInit {
       this.hideNotif(this.notifications[i]);
     }
   }
-
   open(event) {
     let clickedComponent = event.target.closest('.nav-item');
     let items = clickedComponent.parentElement.children;
@@ -41,7 +41,14 @@ export class MenuComponent implements OnInit {
     }
     clickedComponent.classList.add('opened');
   }
-
+  showMainMenu(){
+    if(this.showMenu){
+      this.showMenu = false;
+    }
+    else{
+      this.showMenu = true;
+    }
+  }
   close(event) {
     let clickedComponent = event.target;
     let items = clickedComponent.parentElement.children;
