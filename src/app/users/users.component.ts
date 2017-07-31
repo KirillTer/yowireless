@@ -11,6 +11,7 @@ export class UsersComponent implements OnInit {
   usersColumns;
   currentUser;
   newUserPannelShown: boolean;
+  loadingIndicator: boolean = true;
 
   constructor(private data: DataService) {
     this.currentUser = {};
@@ -43,6 +44,7 @@ export class UsersComponent implements OnInit {
   private handleData_users(data) {
     if (data.result == 'OK') {
       this.users = data.payload;
+      this.loadingIndicator = false;
     }
   }
 

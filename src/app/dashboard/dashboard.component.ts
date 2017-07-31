@@ -13,7 +13,7 @@ export class DashboardComponent implements OnInit {
   tempCps;
   cpServersColumns;
   cpsColumns;
-
+  loadingIndicator: boolean = true;
   constructor(private data: DataService) { }
 
   ngOnInit() {
@@ -75,6 +75,7 @@ export class DashboardComponent implements OnInit {
         }
       }
       this.tempCps = this.cps;
+      this.loadingIndicator = false;
     }
   }
 
