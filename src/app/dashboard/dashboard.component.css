@@ -44,3 +44,6 @@
 /deep/ .medium{
     color: orange;
 }
+/deep/ .datatable-body-cell ,/deep/ .datatable-header-cell{
+    text-align: center !important;
+}
