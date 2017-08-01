@@ -10,7 +10,7 @@ export class SettingsComponent implements OnInit {
   mail;
   sms;
 public myModel = '';
-  public mask = [ /\d/, /\d/, ':', /\d/, /\d/];
+  public mask = [ /[1-2]/, /\d/, ':', /[1-6]/, /\d/];
   constructor(private data: DataService) {
     this.mail = {};
     this.sms = {};
