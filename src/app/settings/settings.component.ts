@@ -9,7 +9,8 @@ import {DataService} from "../../services/services";
 export class SettingsComponent implements OnInit {
   mail;
   sms;
-
+public myModel = '';
+  public mask = [ /\d/, /\d/, ':', /\d/, /\d/];
   constructor(private data: DataService) {
     this.mail = {};
     this.sms = {};
@@ -17,7 +18,6 @@ export class SettingsComponent implements OnInit {
   }
 
   ngOnInit() {
-
   }
 
   loadEmail() {

@@ -7,6 +7,9 @@
   <!--<label> username
     <input [(ngModel)]="mail.username" name="mail_username" type="text"/>
   </label>-->
+     <md-input-container class="settings-input">
+       <input [textMask]="{mask: mask}" mdInput [(ngModel)]="myModel" type="text" placeholder="time" />
+     </md-input-container>
        <md-input-container class="settings-input">
        <input mdInput type="text" placeholder="Username" [(ngModel)]="mail.username" name="mail_username"/>
      </md-input-container>

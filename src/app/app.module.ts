@@ -21,8 +21,8 @@ import {LogoComponent} from "app/logo/logo.component";
 import {MainMenuComponent} from "./main-menu/main-menu.component";
 import { NgxDatatableModule } from '@swimlane/ngx-datatable';
 import {Authentication} from "auth/authentication";
-
-const appRoutes: Routes = [
+import { TextMaskModule } from 'angular2-text-mask';
+const appRoutes: Routes = [ 
   {path: 'login', component: LoginComponent, data: { title: 'login' }, canActivate:[Authentication]},
   {path: 'dashboard', component: DashboardComponent, data: { title: 'dashboard' }, canActivate:[Authentication]},
   {path: 'users', component: UsersComponent, data: { title: 'users' }, canActivate:[Authentication]},
@@ -58,7 +58,8 @@ const appRoutes: Routes = [
     MdSelectModule,
     MdCheckboxModule,
     BrowserAnimationsModule,
-    NgxDatatableModule
+    TextMaskModule,
+    NgxDatatableModule,
   ],
   providers: [
     DataService,
