@@ -16,7 +16,7 @@
 
       <div class="dropdown-menu">
         <h4 class="menu-title">Notifications</h4>
-        <div *ngIf="notifications.length > 0">
+        <div *ngIf="notifications.length > 0" class="notif-list">
          <ul *ngFor="let notif of notifications">
           <li (click)="hideNotif(notif)" *ngIf="!notif.hide" [ngClass]="{'notif_critical': notif.type=='CRITICAL', 'notif_error': notif.type=='ERROR', 'notif_warning': notif.type=='WARNING', 'notif_info': notif.type=='INFO'}">
             <button >
