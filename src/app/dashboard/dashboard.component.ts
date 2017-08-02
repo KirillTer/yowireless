@@ -18,9 +18,6 @@ export class DashboardComponent implements OnInit {
     this.refreshDashboard();
   }
 
-  getClass() {
-    console.log('called');
-  }
 
   refreshDashboard() {
     this.data.getDashboardData().subscribe(
@@ -53,7 +50,7 @@ export class DashboardComponent implements OnInit {
           cpState.host = this.cpServers[i].host;
           cpState.localTime = new Date(cpState.localTime);
           let datepipe: DatePipe = new DatePipe(cpState.localTime);
-          cpState.localTime = datepipe.transform(cpState.localTime, 'yyyy-MM-dd hh:mm:ss');
+          cpState.localTime = datepipe.transform(cpState.localTime, 'yyyy-MM-dd HH:mm:ss');
           this.cps.push(cpState);
         }
       }
@@ -97,7 +94,6 @@ export class DashboardComponent implements OnInit {
   }
 
   getCellClass({ row, column, value }): any {
-    console.log('called');
     if (value == 0) {
       return ' bad ';
     }
@@ -128,6 +124,4 @@ export class DashboardComponent implements OnInit {
     }
 
   }
-
-  rows = [];
 }

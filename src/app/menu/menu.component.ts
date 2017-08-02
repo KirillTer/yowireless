@@ -2,6 +2,7 @@ import {Component, Input, OnInit} from '@angular/core';
 import {MenuItem} from "primeng/primeng";
 import {DataService} from "../../services/services";
 import {Router} from "@angular/router";
+import {DatePipe} from "@angular/common";
 
 @Component({
   selector: 'app-menu',
@@ -83,6 +84,11 @@ export class MenuComponent implements OnInit {
   private handleData_notif(data: any | any) {
     if (data.result = 'OK') {
       this.notifications = data.payload;
+      for (let j = 0; j < this.notifications.length; j++) {
+        let cpState = this.notifications[j];
+        let datepipe: DatePipe = new DatePipe(this.notifications[j].createdTime);
+        this.notifications[j].createdTime = datepipe.transform(this.notifications[j].createdTime, 'yyyy-MM-dd HH:mm:ss');
+      }
       console.log(this.notifications);
     }
   }

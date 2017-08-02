@@ -1,93 +1,85 @@
 <sidebar></sidebar>
 <div class="settings">
-    <app-menu></app-menu>
- <div class="setings-card">
-   <div class="settings-title">Email settings</div>
-<div>
-  <!--<label> username
-    <input [(ngModel)]="mail.username" name="mail_username" type="text"/>
-  </label>-->
-     <md-input-container class="settings-input">
-       <input [textMask]="{mask: mask}" mdInput [(ngModel)]="myModel" type="text" placeholder="time" />
-     </md-input-container>
-       <md-input-container class="settings-input">
-       <input mdInput type="text" placeholder="Username" [(ngModel)]="mail.username" name="mail_username"/>
-     </md-input-container>
-       <md-input-container class="settings-input">
+  <app-menu></app-menu>
+  <div class="setings-card">
+    <div class="settings-title">Settings</div>
+    <div>
+      <md-select placeholder="Default open time" [(ngModel)]="settings.defOpenTime" class="settings-select">
+        <md-option *ngFor="let val of times" [value]="val">{{val}}</md-option>
+      </md-select>
+      <md-select placeholder="Default close time" [(ngModel)]="settings.defCloseTime" class="settings-select">
+        <md-option *ngFor="let val of times" [value]="val">{{val}}</md-option>
+      </md-select>
+    </div>
+    <div>
+      <md-input-container class="settings-input">
+        <input mdInput type="text" placeholder="Max no sessions period(min)" [(ngModel)]="settings.maxNoSessionsPeriod" name="maxNoSessionsPeriod"/>
+      </md-input-container>
+      <md-input-container class="settings-input">
+        <input mdInput type="text" placeholder="Max no new users period(min)" [(ngModel)]="settings.maxNoNewUsersPeriod" name="maxNoNewUsersPeriod"/>
+      </md-input-container>
+    </div>
+    <div>
+      <button md-raised-button color="primary" (click)="saveSettings()" type="button" class="save-settings">Save settings</button>
+    </div>
+  </div>
+  <div class="setings-card">
+    <div class="settings-title">Email settings</div>
+    <div>
+      <md-input-container class="settings-input">
+        <input mdInput type="text" placeholder="Username" [(ngModel)]="mail.username" name="mail_username"/>
+      </md-input-container>
+      <md-input-container class="settings-input">
         <input mdInput type="password" placeholder="Password" [(ngModel)]="mail.password" name="mail_password"/>
-     </md-input-container>
-</div>
-<div>
-  <!--<label> password
-    <input [(ngModel)]="mail.password" name="mail_password" type="password"/>
-  </label>-->
-</div>
-<div>
-  <!--<label> smtp_starttls_enable
-    <input [(ngModel)]="mail.smtpStarttlsEnable" name="mail_smtpStarttlsEnable" type="checkbox"/>
-  </label>-->
-  <md-checkbox [(ngModel)]="mail.smtpStarttlsEnable" name="mail_smtpStarttlsEnable" color="primary" class="settings-input">smtp_starttls_enable</md-checkbox>
-   <md-checkbox [(ngModel)]="mail.smtpAuth" name="mail_smtpAuth" color="primary" class="settings-input">smtp_auth</md-checkbox>
-</div>
-<div>
-  <!--<label> smtp_auth
-    <input [(ngModel)]="mail.smtpAuth" name="mail_smtpAuth" type="checkbox"/>
-  </label>-->
-</div>
-<div>
-  <!--<label> smtp_host
-    <input [(ngModel)]="mail.smtpHost" name="mail_smtpHost" type="text"/>
-  </label>-->
+      </md-input-container>
+    </div>
+    <div>
+    </div>
+    <div>
+      <md-checkbox [(ngModel)]="mail.smtpStarttlsEnable" name="mail_smtpStarttlsEnable" color="primary"
+                   class="settings-input">smtp_starttls_enable
+      </md-checkbox>
+      <md-checkbox [(ngModel)]="mail.smtpAuth" name="mail_smtpAuth" color="primary" class="settings-input">smtp_auth
+      </md-checkbox>
+    </div>
+    <div>
+    </div>
+    <div>
       <md-input-container class="settings-input">
-       <input mdInput type="text" placeholder="smtp host" [(ngModel)]="mail.smtpHost" name="mail_smtpHost"/>
-     </md-input-container>
+        <input mdInput type="text" placeholder="smtp host" [(ngModel)]="mail.smtpHost" name="mail_smtpHost"/>
+      </md-input-container>
       <md-input-container class="settings-input">
-       <input mdInput type="number" placeholder="smtp port" [(ngModel)]="mail.smtpPort" name="mail_smtpPort"/>
-     </md-input-container>
-</div>
-<div>
-  <!--<label> smtp_port
-    <input [(ngModel)]="mail.smtpPort" name="mail_smtpPort" type="number"/>
-  </label>-->
-</div>
-<div>
-  <button md-raised-button color="primary" (click)="saveEmail()" type="button" class="save-settings">Save email setings</button>
-</div>
+        <input mdInput type="number" placeholder="smtp port" [(ngModel)]="mail.smtpPort" name="mail_smtpPort"/>
+      </md-input-container>
+    </div>
+    <div>
+    </div>
+    <div>
+      <button md-raised-button color="primary" (click)="saveEmail()" type="button" class="save-settings">Save email settings</button>
+    </div>
 
-<br/>
-</div> 
- <div class="setings-card">
-<div class="settings-title">Sms api settings</div>
-<div>
-  <!--<label> sms api
-    <select [(ngModel)]="sms.apiType" name="" type="">
-      <option>FIRETEXT</option>
-      <option>MONGATE</option>
-    </select>
-  </label>-->
-  <md-select placeholder="SMS API" [(ngModel)]="sms.apiType" class="settings-select">
-   <md-option value="FIRETEXT">FIRETEXT</md-option>
-   <md-option value="MONGATE">MONGATE</md-option>
-</md-select>
-</div>
-<div>
- <!-- <label> apiKey
-    <input [(ngModel)]="sms.apiKey" name="" type="text"/>
-  </label>-->
+    <br/>
+  </div>
+  <div class="setings-card">
+    <div class="settings-title">Sms api settings</div>
+    <div>
+      <md-select placeholder="SMS API" [(ngModel)]="sms.apiType" class="settings-select">
+        <md-option value="FIRETEXT">FIRETEXT</md-option>
+        <md-option value="MONGATE">MONGATE</md-option>
+      </md-select>
+    </div>
+    <div>
       <md-input-container class="settings-input">
-       <input mdInput type="text" placeholder="API key" [(ngModel)]="sms.apiKey" name=""/>
-     </md-input-container>
-</div>
-<div>
-  <!--<label> url
-    <input [(ngModel)]="sms.apiKey" name="" type="text"/>
-  </label>-->
-       <md-input-container class="settings-input">
-       <input mdInput type="text" placeholder="API url" [(ngModel)]="sms.apiUrl" name=""/>
-     </md-input-container>
-</div>
-<div>
-  <button md-raised-button color="primary" (click)="saveSms()" type="button" class="save-settings">Save sms settings</button>
-</div>
- </div>
+        <input mdInput type="text" placeholder="API key" [(ngModel)]="sms.apiKey" name=""/>
+      </md-input-container>
+    </div>
+    <div>
+      <md-input-container class="settings-input">
+        <input mdInput type="text" placeholder="API url" [(ngModel)]="sms.apiUrl" name=""/>
+      </md-input-container>
+    </div>
+    <div>
+      <button md-raised-button color="primary" (click)="saveSms()" type="button" class="save-settings">Save sms settings</button>
+    </div>
+  </div>
 </div>

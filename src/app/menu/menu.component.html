@@ -21,8 +21,10 @@
           <li (click)="hideNotif(notif)" *ngIf="!notif.hide" [ngClass]="{'notif_critical': notif.type=='CRITICAL', 'notif_error': notif.type=='ERROR', 'notif_warning': notif.type=='WARNING', 'notif_info': notif.type=='INFO'}">
             <button >
               <div class="content">
+                <span class="desc">server: {{notif.host}}</span>
                 <span class="desc">{{notif.title}}</span>
-                <span class="date">{{notif.text}}</span>
+                <span class="desc">{{notif.text}}</span>
+                <span class="desc">{{notif.createdTime}}</span>
               </div>
             </button>
           </li>

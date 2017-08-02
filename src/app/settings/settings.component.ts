@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {DataService} from "../../services/services";
+import {min} from "rxjs/operator/min";
 
 @Component({
   selector: 'app-settings',
@@ -9,15 +10,82 @@ import {DataService} from "../../services/services";
 export class SettingsComponent implements OnInit {
   mail;
   sms;
-public myModel = '';
-  public mask = [ /[1-2]/, /\d/, ':', /[1-6]/, /\d/];
+  settings;
+  times = [
+    '01:00',
+    '02:00',
+    '03:00',
+    '04:00',
+    '05:00',
+    '06:00',
+    '07:00',
+    '08:00',
+    '09:00',
+    '10:00',
+    '11:00',
+    '12:00',
+    '13:00',
+    '14:00',
+    '15:00',
+    '16:00',
+    '17:00',
+    '18:00',
+    '19:00',
+    '20:00',
+    '21:00',
+    '22:00',
+    '23:00',
+  ];
+
   constructor(private data: DataService) {
     this.mail = {};
     this.sms = {};
+    this.settings = {};
+
     this.loadEmail();
+    this.loadSettings();
   }
 
   ngOnInit() {
+
+  }
+
+  saveSettings() {
+    this.data.saveSettings(this.settings).subscribe(
+      data => this.handleData_savesettings(data),
+      error => this.handleError_savesettings(error),
+      () => console.log('Completed!')
+    );
+  }
+
+  private handleData_savesettings(data) {
+    if (data.result == 'OK') {
+      console.log('settings saved');
+    }
+  }
+
+  private handleError_savesettings(error) {
+    console.log('Error during saving email settings!');
+    console.log(error);
+  }
+
+  loadSettings() {
+    this.data.getSettings().subscribe(
+      data => this.handleData_loadsettings(data),
+      error => this.handleError_loadsettings(error),
+      () => console.log('Completed!')
+    );
+  }
+
+  private handleData_loadsettings(data) {
+    if (data.result == 'OK') {
+      this.settings = data.payload;
+    }
+  }
+
+  private handleError_loadsettings(error) {
+    console.log('Error during loading email settings!');
+    console.log(error);
   }
 
   loadEmail() {

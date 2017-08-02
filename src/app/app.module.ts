@@ -10,7 +10,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { DataService } from "../services/services";
 import { HttpModule } from "@angular/http";
 
-import {DataTableModule, MenuModule} from "primeng/primeng";
+import {CalendarModule, DataTableModule, MenuModule} from "primeng/primeng";
 import {CookieService} from "ngx-cookie-service";
 import {AccordionModule} from 'primeng/components/accordion/accordion';
 import { MenuComponent } from './menu/menu.component';
@@ -22,7 +22,7 @@ import {MainMenuComponent} from "./main-menu/main-menu.component";
 import { NgxDatatableModule } from '@swimlane/ngx-datatable';
 import {Authentication} from "auth/authentication";
 import { TextMaskModule } from 'angular2-text-mask';
-const appRoutes: Routes = [ 
+const appRoutes: Routes = [
   {path: 'login', component: LoginComponent, data: { title: 'login' }, canActivate:[Authentication]},
   {path: 'dashboard', component: DashboardComponent, data: { title: 'dashboard' }, canActivate:[Authentication]},
   {path: 'users', component: UsersComponent, data: { title: 'users' }, canActivate:[Authentication]},
@@ -60,6 +60,7 @@ const appRoutes: Routes = [
     BrowserAnimationsModule,
     TextMaskModule,
     NgxDatatableModule,
+    CalendarModule
   ],
   providers: [
     DataService,
