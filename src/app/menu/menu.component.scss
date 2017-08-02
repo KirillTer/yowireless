@@ -33,7 +33,8 @@
 }
 .notif-list{
   max-height: 300px;
-  overflow: scroll;
+  overflow-y: scroll;
+  overflow-x: hidden;
 }
 .notif_info {
   background: #0A4A0A;
@@ -180,6 +181,7 @@ background: transparent;
               color: #fff;
               background: transparent;
               border: none !important;
+              width: 100%;
               &:hover {
                 color: rgba(#fff,.8);
                 cursor: pointer;
