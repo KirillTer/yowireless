@@ -10,6 +10,9 @@
     transition: .3s all;
     margin-top: 70px;
 }
+/deep/ .mat-select-panel{
+    margin-top: 40px;
+}
 .setings-card{
     background: white;
     margin: 20px;
