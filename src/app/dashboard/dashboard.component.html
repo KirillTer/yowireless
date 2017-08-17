@@ -19,7 +19,7 @@
       <ngx-datatable-column name="radius" prop="radiusState" [cellClass]="serverState" width="140" minWidth="140" maxWidth="140"></ngx-datatable-column>
       <ngx-datatable-column name="replication" prop="replicationState" [cellClass]="serverState" width="160" minWidth="160" maxWidth="160"></ngx-datatable-column>
       <ngx-datatable-column name="CP app" prop="cpAppState" [cellClass]="serverState" width="140" minWidth="140" maxWidth="140"></ngx-datatable-column>
-      <ngx-datatable-column name="frees pace" prop="cpSpace.freeGB" [cellClass]="freeSpace" width="130" minWidth="130" maxWidth="130"></ngx-datatable-column>
+      <ngx-datatable-column name="free space" prop="cpSpace.freeGB" [cellClass]="freeSpace" width="130" minWidth="130" maxWidth="130"></ngx-datatable-column>
       <ngx-datatable-column name="cert expires" prop="certificateExpireDate" width="200" minWidth="200" maxWidth="200"></ngx-datatable-column>
   </ngx-datatable>
   </div>
@@ -44,8 +44,8 @@
     [loadingIndicator]="loadingIndicator">
       <ngx-datatable-column name="host" prop="host" width="80" minWidth="80" maxWidth="80"></ngx-datatable-column>
       <ngx-datatable-column name="nasid" prop="nasid" width="140" minWidth="140" maxWidth="140"></ngx-datatable-column>
-      <ngx-datatable-column name="local time" prop="localTime" width="130" minWidth="130" maxWidth="130"></ngx-datatable-column>
-      <ngx-datatable-column name="working time" prop="workingTime" width="320" minWidth="130" maxWidth="130"></ngx-datatable-column>
+      <ngx-datatable-column name="local time" prop="localTime" width="220" minWidth="220" maxWidth="220"></ngx-datatable-column>
+      <ngx-datatable-column name="working time" prop="workingTime" width="170" minWidth="170" maxWidth="170"></ngx-datatable-column>
       <ngx-datatable-column name="last hour sessions" prop="lastHourSessionsCount" [cellClass]="getCellClass" width="220" minWidth="220" maxWidth="220"></ngx-datatable-column>
       <ngx-datatable-column name="todays essions" prop="todaySessionsCount" [cellClass]="getCellClass" width="190" minWidth="190" maxWidth="190"></ngx-datatable-column>
       <ngx-datatable-column name="last hour new users" prop="lastHourNewUsersCount" [cellClass]="getCellClass" width="220" minWidth="220" maxWidth="220"></ngx-datatable-column>

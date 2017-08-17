@@ -10,7 +10,8 @@ export class UsersComponent implements OnInit {
   users;
   usersColumns;
   currentUser;
-  newUserPannelShown: boolean;
+  editAddUserPanelShown: boolean;
+  editUserPanelShown: boolean;
   loadingIndicator: boolean = true;
 
   constructor(private data: DataService) {
@@ -26,7 +27,6 @@ export class UsersComponent implements OnInit {
     this.usersColumns =[
       { prop: 'id', name: 'id' , width: 60, minWidth: 60, maxWidth: 60, resizable: false, canAutoResize: false},
       { prop: 'username', name: 'username' , width: 200, minWidth: 200, maxWidth: 200, resizable: false, canAutoResize: false},
-      // { prop: 'password', name: 'password' , width: 120, minWidth: 120, maxWidth: 120, resizable: false, canAutoResize: false},
       { prop: 'firstName', name: 'first name' , width: 140, minWidth: 140, maxWidth: 140, resizable: false, canAutoResize: false},
       { prop: 'lastName', name: 'last name' , width: 140, minWidth: 140, maxWidth: 140, resizable: false, canAutoResize: false},
       { prop: 'email', name: 'email' , width: 340, minWidth: 340, maxWidth: 340, resizable: false, canAutoResize: false},
@@ -34,11 +34,24 @@ export class UsersComponent implements OnInit {
       { prop: 'phoneNumber', name: 'phone number' , width: 180, minWidth: 180, maxWidth: 180, resizable: false, canAutoResize: false},
       { prop: 'sendSms', name: 'send sms', width: 140, minWidth: 140, maxWidth: 140, resizable: false, canAutoResize: false }
     ];
-    this.newUserPannelShown = false;
+    this.editAddUserPanelShown = false;
   }
 
   ngOnInit() {
     this.refreshUsers();
+  }
+
+  onSelect({ selected }) {
+    this.currentUser.id = selected[0].id;
+    this.currentUser.username = selected[0].username;
+    this.currentUser.password = selected[0].password;
+    this.currentUser.firstName = selected[0].firstName;
+    this.currentUser.lastName = selected[0].lastName;
+    this.currentUser.email = selected[0].email;
+    this.currentUser.sendEmail = selected[0].sendEmail;
+    this.currentUser.phoneNumber = selected[0].phoneNumber;
+    this.currentUser.sendSms = selected[0].sendSms;
+    this.editUser();
   }
 
   private refreshUsers() {
@@ -61,25 +74,43 @@ export class UsersComponent implements OnInit {
     console.log(error);
   }
 
+  editUser() {
+    this.editAddUserPanelShown = true;
+    this.editUserPanelShown = true;
+    this.currentUser.newUser = false;
+  }
+
   addUser() {
-    this.newUserPannelShown = true;
+    this.editAddUserPanelShown = true;
+    this.currentUser.newUser = true;
   }
 
   cancelAddUser() {
-    this.newUserPannelShown = false;
+    this.editAddUserPanelShown = false;
+    this.currentUser = {};
   }
 
   saveUser() {
-    this.data.createUser(this.currentUser).subscribe(
-      data => this.handleData_createusers(data),
-      error => this.handleError_createusers(error),
-      () => console.log('Completed!')
-    );
-    this.newUserPannelShown = false;
+    if (this.currentUser.newUser) {
+      this.data.createUser(this.currentUser).subscribe(
+        data => this.handleData_createusers(data),
+        error => this.handleError_createusers(error)
+      );
+    } else {
+      this.data.editUser(this.currentUser).subscribe(
+        data => this.handleData_createusers(data),
+        error => this.handleError_createusers(error)
+      );
+    }
+    this.editAddUserPanelShown = false;
+    this.currentUser = {};
   }
 
   deleteUser() {
-
+    this.data.deleteUser(this.currentUser).subscribe(
+      data => this.handleData_createusers(data),
+      error => this.handleError_createusers(error)
+    );
   }
 
   private handleData_createusers(data: any) {

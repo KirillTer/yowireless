@@ -26,10 +26,12 @@
     [rowHeight]="'auto'"
     [rows]='users'
     [scrollbarH]="true"
-    [loadingIndicator]="loadingIndicator">
+    [loadingIndicator]="loadingIndicator"
+    [selectionType]="'single'"
+    (select)="onSelect($event)">
   </ngx-datatable>
 </div>
-  <div *ngIf="newUserPannelShown" class="users-card">
+  <div *ngIf="editAddUserPanelShown" class="users-card">
     <div class="users-card-header">Add new user</div>
     <div class="new-user-card">
     <div>
@@ -90,17 +92,18 @@
       <!--<label>sendSms
         <input id="sendSms" [(ngModel)]=currentUser.sendSms type="checkbox"/>
       </label>-->
-      <md-checkbox [(ngModel)]="currentUser.sendSms" color="primary" id="sendSms">Send Email</md-checkbox>
+      <md-checkbox [(ngModel)]="currentUser.sendSms" color="primary" id="sendSms">Send SMS</md-checkbox>
     </div>
      <br>
-   <!-- <button (click)="saveUser()" *ngIf="newUserPannelShown">save user</button>-->
+   <!-- <button (click)="saveUser()" *ngIf="editAddUserPanelShown">save user</button>-->
    <div>
-     <button md-raised-button color="primary" (click)="cancelAddUser()" type="button" *ngIf="newUserPannelShown" class="users-button" style="margin-left: 0;">Cancel</button>
-     <button md-raised-button color="primary" (click)="saveUser()" type="button" *ngIf="newUserPannelShown" class="users-button" style="margin-left: 0; background: green;">Save User</button>
+     <button md-raised-button color="primary" (click)="cancelAddUser()" type="button" *ngIf="editAddUserPanelShown" class="users-button" style="margin-left: 0;">Cancel</button>
+     <button md-raised-button color="primary" (click)="saveUser()" type="button" *ngIf="editAddUserPanelShown" class="users-button" style="margin-left: 0; background: green;">Save User</button>
+     <button md-raised-button color="primary" (click)="deleteUser()" type="button" *ngIf="editUserPanelShown" class="users-button" style="margin-left: 0; background: red;">Delete User</button>
   </div>
      </div>
   </div>
-  <button md-raised-button color="primary" (click)="addUser()" type="button" *ngIf="!newUserPannelShown" class="users-button">Add User</button>
-  <!--<button (click)="addUser()" *ngIf="!newUserPannelShown">add user</button>-->
+  <button md-raised-button color="primary" (click)="addUser()" type="button" *ngIf="!editAddUserPanelShown" class="users-button">Add User</button>
+  <!--<button (click)="addUser()" *ngIf="!editAddUserPanelShown">add user</button>-->
   <button (click)="deleteUser()" *ngIf="false">delete user</button>
 </div>

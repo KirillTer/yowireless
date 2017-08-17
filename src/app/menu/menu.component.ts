@@ -3,6 +3,7 @@ import {MenuItem} from "primeng/primeng";
 import {DataService} from "../../services/services";
 import {Router} from "@angular/router";
 import {DatePipe} from "@angular/common";
+import {Observable} from "rxjs/Observable";
 
 @Component({
   selector: 'app-menu',
@@ -17,14 +18,17 @@ export class MenuComponent implements OnInit {
 
   constructor(private data: DataService, private router: Router) {
     this.notifications = [];
-    this.refreshNotifications();
+    Observable.interval(15000)
+      .take(10).map((x) => x+1)
+      .subscribe((x) => {
+        this.refreshNotifications();
+      });
   }
 
   hideNotif(elToRemove) {
     this.data.deleteNotification(elToRemove).subscribe(
       data => this.handleData_delnotif(data),
-      error => this.handleError_delnotif(error),
-      () => console.log('Completed!'));
+      error => this.handleError_delnotif(error));
 
     this.notifications = this.notifications.filter(function (el) {
       return elToRemove.id != el.id;
@@ -76,8 +80,7 @@ export class MenuComponent implements OnInit {
   private refreshNotifications() {
     this.data.getNotifications().subscribe(
       data => this.handleData_notif(data),
-      error => this.handleError_notif(error),
-      () => console.log('Completed!')
+      error => this.handleError_notif(error)
     );
   }
 
@@ -87,9 +90,8 @@ export class MenuComponent implements OnInit {
       for (let j = 0; j < this.notifications.length; j++) {
         let cpState = this.notifications[j];
         let datepipe: DatePipe = new DatePipe(this.notifications[j].createdTime);
-        this.notifications[j].createdTime = datepipe.transform(this.notifications[j].createdTime, 'yyyy-MM-dd HH:mm:ss');
+        this.notifications[j].createdTimeFormated = datepipe.transform(this.notifications[j].createdTime, 'yyyy-MM-dd HH:mm:ss');
       }
-      console.log(this.notifications);
     }
   }
 
@@ -115,7 +117,7 @@ export class MenuComponent implements OnInit {
 
   private handleData_delnotif(data: any) {
     if (data.result = 'OK') {
-      console.log(data);
+
     }
   }
 

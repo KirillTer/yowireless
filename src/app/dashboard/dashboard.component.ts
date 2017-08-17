@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {DataService} from "../../services/services";
 import {DatePipe} from "@angular/common";
+import {Observable} from "rxjs/Observable";
 
 @Component({
   selector: 'app-dashboard',
@@ -12,25 +13,35 @@ export class DashboardComponent implements OnInit {
   cps;
   tempCps;
   loadingIndicator: boolean = true;
-  constructor(private data: DataService) { }
-
-  ngOnInit() {
-    this.refreshDashboard();
+  constructor(private data: DataService) {
+    Observable.interval(15000)
+      .take(10).map((x) => x+1)
+      .subscribe((x) => {
+        this.refreshDashboard();
+      });
   }
 
+  ngOnInit() {
+
+  }
 
   refreshDashboard() {
     this.data.getDashboardData().subscribe(
       data => this.handleData_dashboard(data),
-      error => this.handleError_dashboard(error),
-      () => console.log('Completed!')
+      error => this.handleError_dashboard(error)
     );
   }
 
   private handleData_dashboard(data) {
-    console.log(data);
     if (data.result == 'OK') {
-      this.cpServers = data.cpServers;
+      var notSortedCPServers:Array<any> = data.cpServers;
+      this.cpServers = notSortedCPServers.sort((el1,el2)=> {
+        if (el1.host > el2.host) {
+          return 1;
+        } else {
+          return -1;
+        }
+      });
       this.cps = [];
       for (let i = 0; i < this.cpServers.length; i++) {
         this.cpServers[i].host = this.cpServers[i].host.replace('https://ikea-', '').replace('.net', '');
@@ -48,9 +59,6 @@ export class DashboardComponent implements OnInit {
         for (let j = 0; j < cpStateList.length; j++) {
           let cpState = cpStateList[j];
           cpState.host = this.cpServers[i].host;
-          cpState.localTime = new Date(cpState.localTime);
-          let datepipe: DatePipe = new DatePipe(cpState.localTime);
-          cpState.localTime = datepipe.transform(cpState.localTime, 'yyyy-MM-dd HH:mm:ss');
           this.cps.push(cpState);
         }
       }

@@ -27,8 +27,7 @@ export class LoginComponent implements OnInit {
   login(){
     this.data.login(this.ywm_username, this.ywm_password).subscribe(
       data => this.handleData_login(data),
-      error => this.handleError_login(error),
-      () => console.log('Completed!')
+      error => this.handleError_login(error)
     )
   }
 

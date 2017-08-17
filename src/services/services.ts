@@ -29,8 +29,6 @@ export class DataService {
   }
 
   login(username, password){
-    console.log(username);
-    console.log(password);
     let body = {
       username: username,
       password: password
@@ -41,7 +39,6 @@ export class DataService {
       'Authorization': 'Basic ' + userCred,
       'Content-Type': 'application/json'
     });
-    console.log(body);
     return this.http.post(url, body, {headers: headers})
       .map(this.extractData)
       .catch(this.handleError);
@@ -153,6 +150,22 @@ export class DataService {
     this.loadToken();
     let headers = new Headers({'X-AUTH-TOKEN': Globals.USERTOKEN});
     return this.http.post(Globals.SERVERADDR + '/deleteNotification', elToRemove,{headers: headers})
+      .map(this.extractData)
+      .catch(this.handleError);
+  }
+
+  editUser(user: any) {
+    this.loadToken();
+    let headers = new Headers({'X-AUTH-TOKEN': Globals.USERTOKEN});
+    return this.http.post(Globals.SERVERADDR + '/editUser', user,{headers: headers})
+      .map(this.extractData)
+      .catch(this.handleError);
+  }
+
+  deleteUser(user: any) {
+    this.loadToken();
+    let headers = new Headers({'X-AUTH-TOKEN': Globals.USERTOKEN});
+    return this.http.post(Globals.SERVERADDR + '/deleteUser', user,{headers: headers})
       .map(this.extractData)
       .catch(this.handleError);
   }
