@@ -90,6 +90,22 @@ export class DataService {
       .catch(this.handleError);
   }
 
+  getLogs() {
+    this.loadToken();
+    let headers = new Headers({'X-AUTH-TOKEN': Globals.USERTOKEN});
+    return this.http.post(Globals.SERVERADDR + '/changeLog', {}, {headers: headers})
+      .map(this.extractData)
+      .catch(this.handleError);
+  }
+
+  getHistorys() {
+    this.loadToken();
+    let headers = new Headers({'X-AUTH-TOKEN': Globals.USERTOKEN});
+    return this.http.post(Globals.SERVERADDR + '/loginHistory', {}, {headers: headers})
+      .map(this.extractData)
+      .catch(this.handleError);
+  }
+
   saveSettings(sms: any) {
     this.loadToken();
     let headers = new Headers({'X-AUTH-TOKEN': Globals.USERTOKEN});

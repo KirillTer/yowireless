@@ -7,7 +7,8 @@ export class Globals {
   static LOGGEDINUSER: any;
 
    // static SERVERADDR: string = 'https://ikea-cp-mon.net/server';
-  static SERVERADDR: string = 'http://localhost:9300';
+   // static SERVERADDR: string = 'http://localhost:9300';
+   static SERVERADDR: string = 'http://192.168.0.116:9300';  
 
   static getHeaders() {
     return new Headers({

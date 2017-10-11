@@ -1,0 +1,60 @@
+<sidebar></sidebar>
+<div class="historys">
+   <app-menu></app-menu>
+<div class="historys-card">
+  <div class="historys-card-header">
+      History Table
+  </div>
+  <ngx-datatable
+    class='material historys-table'
+    [columns]="historysColumns"
+    [columnMode]="'force'"
+    [headerHeight]="'auto'"
+    [rowHeight]="'auto'"
+    [rows]='historys'
+    [scrollbarH]="true"
+    [loadingIndicator]="loadingIndicator"
+    [selectionType]="'single'"
+    (select)="onSelect($event)">
+    <ngx-datatable-column prop="username" [width]="200">
+        <ng-template let-column="column" ngx-datatable-header-template>
+            username
+        </ng-template>
+        <ng-template let-value="value" ngx-datatable-cell-template>
+            {{value}}
+        </ng-template>
+    </ngx-datatable-column>
+    <ngx-datatable-column prop="date" [width]="200">
+        <ng-template let-column="column" ngx-datatable-header-template>
+            date
+        </ng-template>
+        <ng-template let-value="value" ngx-datatable-cell-template>
+            {{value | date: 'dd/MM/yyyy  HH:mm'}}
+        </ng-template>
+    </ngx-datatable-column>
+    <ngx-datatable-column prop="loginTime" [width]="200">
+        <ng-template let-column="column" ngx-datatable-header-template>
+            Login Time
+        </ng-template>
+        <ng-template let-value="value" ngx-datatable-cell-template>
+            {{value | date: 'dd/MM/yyyy  HH:mm'}}
+        </ng-template>
+    </ngx-datatable-column>
+    <ngx-datatable-column prop="logoutTime" [width]="200">
+        <ng-template let-column="column" ngx-datatable-header-template>
+            Logout Time
+        </ng-template>
+        <ng-template let-value="value" ngx-datatable-cell-template>
+            {{value | date: 'dd/MM/yyyy  HH:mm'}}
+        </ng-template>
+    </ngx-datatable-column>
+    <ngx-datatable-column prop="logoutReason" [width]="200">
+        <ng-template let-column="column" ngx-datatable-header-template>
+            Logout Reason
+        </ng-template>
+        <ng-template let-value="value" ngx-datatable-cell-template>
+            {{value}}
+        </ng-template>
+    </ngx-datatable-column>
+  </ngx-datatable>
+</div>

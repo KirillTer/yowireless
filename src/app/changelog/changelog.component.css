@@ -1,0 +1,31 @@
+@media (max-width: 991px) {
+    .logs{
+        margin-left: 0 !important;
+    }
+}
+.logs{
+    margin-left: 220px;
+    margin-top: 70px;
+    font-family: 'Open sans', sans-serif;
+}
+.logs-card{
+    background: white;
+    margin: 20px;
+    padding-bottom: 10px;
+    box-shadow: 27px -21px 32px -18px rgba(179,179,179,1); 
+}
+.logs-card-header{
+    text-align: left;
+    font-size: 22px;
+    padding: 20px;
+    padding-left: 0px;
+    background: #3c4e62;
+    color: white;
+    padding: 10px;
+}
+.logs-button{
+    margin-left: 20px;
+}
+.logs-table{
+    padding: 10px;
+}

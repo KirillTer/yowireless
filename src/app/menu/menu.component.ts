@@ -73,6 +73,8 @@ export class MenuComponent implements OnInit {
       {label: 'Dashboard', routerLink: ['/dashboard']},
       {label: 'Settings', routerLink: ['/settings']},
       {label: 'Users', routerLink: ['/users']},
+      {label: 'ChangeLog', routerLink: ['/changelog']},
+      {label: 'LoginHistory', routerLink: ['/loginhistory']},
       {label: 'Logout', routerLink: ['/logout']}
     ];
   }

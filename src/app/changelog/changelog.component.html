@@ -1,0 +1,76 @@
+<sidebar></sidebar>
+<div class="logs">
+   <app-menu></app-menu>
+<div class="logs-card">
+  <div class="logs-card-header">
+    Logs Table
+  </div>
+  <ngx-datatable
+    class='material logs-table'
+    [columns]="logsColumns"
+    [columnMode]="'force'"
+    [headerHeight]="'auto'"
+    [rowHeight]="'auto'"
+    [rows]='logs'
+    [scrollbarH]="true"
+    [loadingIndicator]="loadingIndicator"
+    [selectionType]="'single'"
+    (select)="onSelect($event)">
+    <ngx-datatable-column prop="username" [width]="140">
+        <ng-template let-column="column" ngx-datatable-header-template>
+            username
+        </ng-template>
+        <ng-template let-value="value" ngx-datatable-cell-template>
+            {{value}}
+        </ng-template>
+    </ngx-datatable-column>
+    <ngx-datatable-column prop="date" [width]="180">
+        <ng-template let-column="column" ngx-datatable-header-template>
+            date
+        </ng-template>
+        <ng-template let-value="value" ngx-datatable-cell-template>
+            {{value | date: 'dd/MM/yyyy  HH:mm'}}
+        </ng-template>
+    </ngx-datatable-column>
+    <ngx-datatable-column prop="objectType" [width]="140">
+        <ng-template let-column="column" ngx-datatable-header-template>
+            Object Type
+        </ng-template>
+        <ng-template let-value="value" ngx-datatable-cell-template>
+            {{value}}
+        </ng-template>
+    </ngx-datatable-column>
+    <ngx-datatable-column prop="operationType" [width]="160">
+        <ng-template let-column="column" ngx-datatable-header-template>
+            Operation Type
+        </ng-template>
+        <ng-template let-value="value" ngx-datatable-cell-template>
+            {{value}}
+        </ng-template>
+    </ngx-datatable-column>
+    <ngx-datatable-column prop="stateBefore" [width]="140">
+        <ng-template let-column="column" ngx-datatable-header-template>
+            State Before
+        </ng-template>
+        <ng-template let-value="value" ngx-datatable-cell-template>
+            {{value}}
+        </ng-template>
+    </ngx-datatable-column>
+    <ngx-datatable-column prop="stateAfter" [width]="140">
+        <ng-template let-column="column" ngx-datatable-header-template>
+            State After
+        </ng-template>
+        <ng-template let-value="value" ngx-datatable-cell-template>
+            {{value}}
+        </ng-template>
+    </ngx-datatable-column>
+    <ngx-datatable-column prop="changes" [width]="140">
+        <ng-template let-column="column" ngx-datatable-header-template>
+            changes
+        </ng-template>
+        <ng-template let-value="value" ngx-datatable-cell-template>
+            {{value}}
+        </ng-template>
+    </ngx-datatable-column>
+  </ngx-datatable>
+</div>

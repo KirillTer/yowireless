@@ -67,19 +67,19 @@
      </md-input-container>
     </div>
     <div>
+        <md-checkbox [(ngModel)]="currentUser.sendEmail" color="primary" id="sendEmail">Send Email</md-checkbox>
       <md-input-container>
         <input mdInput type="email" placeholder="Email" [(ngModel)]="currentUser.email" id="email"/>
      </md-input-container>
-     <md-input-container>
-      <input mdInput type="text" placeholder="Phone Number" [(ngModel)]="currentUser.phoneNumber" id="phoneNumber"/>
-    </md-input-container>
       <!--<label>email
         <input id="email" [(ngModel)]=currentUser.email type="email"/>
       </label>-->
     </div>
     <div>
-      <md-checkbox [(ngModel)]="currentUser.sendEmail" color="primary" id="sendEmail">Send Email</md-checkbox>
       <md-checkbox [(ngModel)]="currentUser.sendSms" color="primary" id="sendSms">Send SMS</md-checkbox>
+      <md-input-container>
+          <input mdInput type="text" placeholder="Phone Number" [(ngModel)]="currentUser.phoneNumber" id="phoneNumber"/>
+        </md-input-container>
       <!--<label>sendEmail
         <input id="sendEmail" [(ngModel)]=currentUser.sendEmail type="checkbox"/>
       </label>-->
@@ -87,7 +87,7 @@
     <div>
       <md-checkbox [(ngModel)]="currentUser.sendNotifNoNewUsers" color="primary" id="sendNotifNoNewUsers">No New Users</md-checkbox>
       <md-input-container>
-        <input mdInput type="number" placeholder="Max No New Users Period Minutes" [(ngModel)]="currentUser.noNewSersMaxPeriod" id="noNewSersMaxPeriod"/>
+        <input mdInput type="number" placeholder="Max No New Users Period Minutes" [(ngModel)]="currentUser.noNewUsersMaxPeriod" id="noNewUsersMaxPeriod"/>
      </md-input-container>
     </div>
     <div>

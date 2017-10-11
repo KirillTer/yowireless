@@ -24,7 +24,7 @@ export class UsersComponent implements OnInit {
       phoneNumber: '',
       sendSms: false,
       sendNotifNoNewUsers: false,
-      noNewSersMaxPeriod: '',
+      noNewUsersMaxPeriod: '',
       sendNotifNoNewSessions: false,
       noNewSessionsMaxPeriod: '',
       sendNotifNginx: false,
@@ -68,7 +68,7 @@ export class UsersComponent implements OnInit {
     this.currentUser.phoneNumber = selected[0].phoneNumber;
     this.currentUser.sendSms = selected[0].sendSms;
     this.currentUser.sendNotifNoNewUsers = selected[0].sendNotifNoNewUsers;
-    this.currentUser.noNewSersMaxPeriod = selected[0].noNewSersMaxPeriod;
+    this.currentUser.noNewUsersMaxPeriod = selected[0].noNewUsersMaxPeriod;
     this.currentUser.sendNotifNoNewSessions = selected[0].sendNotifNoNewSessions;
     this.currentUser.noNewSessionsMaxPeriod = selected[0].noNewSessionsMaxPeriod;
     this.currentUser.sendNotifNginx = selected[0].sendNotifNginx;

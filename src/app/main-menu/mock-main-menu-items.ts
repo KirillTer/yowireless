@@ -44,5 +44,27 @@ export const MAINMENUITEMS: MainMenuItem[] = [
     externalLink: '',
     budge: '',
     budgeColor: '#008000'
+  },
+  {
+    title: 'Change Log',
+    icon: 'fa fa-cogs',
+    active: false,
+    groupTitle : false,
+    sub: '',
+    routing: '/changelog',
+    externalLink: '',
+    budge: '',
+    budgeColor: '#008000'
+  },
+  {
+    title: 'Login History',
+    icon: 'fa fa-cogs',
+    active: false,
+    groupTitle : false,
+    sub: '',
+    routing: '/loginhistory',
+    externalLink: '',
+    budge: '',
+    budgeColor: '#008000'
   }
 ];
