@@ -22,7 +22,23 @@ export class UsersComponent implements OnInit {
       email: '',
       sendEmail: false,
       phoneNumber: '',
-      sendSms: false
+      sendSms: false,
+      sendNotifNoNewUsers: false,
+      noNewSersMaxPeriod: '',
+      sendNotifNoNewSessions: false,
+      noNewSessionsMaxPeriod: '',
+      sendNotifNginx: false,
+      sendNotifPostgres: false,
+      sendNotifRadius: false,
+      sendNotifCpApp: false,
+      sendNotifApiTest: false,
+      sendNotifCertExpires: false,
+      certExpiresDays: '',
+      sendNotifReplication: false,
+      replicationWarningCount: '',
+      sendNotifAvalilableSpace: false,
+      normalFreeSpacePercent: '',
+      criticalFreeSpacePercent: ''
     };
     this.usersColumns =[
       { prop: 'id', name: 'id' , width: 60, minWidth: 60, maxWidth: 60, resizable: false, canAutoResize: false},
@@ -51,6 +67,22 @@ export class UsersComponent implements OnInit {
     this.currentUser.sendEmail = selected[0].sendEmail;
     this.currentUser.phoneNumber = selected[0].phoneNumber;
     this.currentUser.sendSms = selected[0].sendSms;
+    this.currentUser.sendNotifNoNewUsers = selected[0].sendNotifNoNewUsers;
+    this.currentUser.noNewSersMaxPeriod = selected[0].noNewSersMaxPeriod;
+    this.currentUser.sendNotifNoNewSessions = selected[0].sendNotifNoNewSessions;
+    this.currentUser.noNewSessionsMaxPeriod = selected[0].noNewSessionsMaxPeriod;
+    this.currentUser.sendNotifNginx = selected[0].sendNotifNginx;
+    this.currentUser.sendNotifPostgres = selected[0].sendNotifPostgres;
+    this.currentUser.sendNotifRadius = selected[0].sendNotifRadius;
+    this.currentUser.sendNotifCpApp = selected[0].sendNotifCpApp;
+    this.currentUser.sendNotifApiTest = selected[0].sendNotifApiTest;
+    this.currentUser.sendNotifCertExpires = selected[0].sendNotifCertExpires;
+    this.currentUser.certExpiresDays = selected[0].certExpiresDays;
+    this.currentUser.sendNotifReplication = selected[0].sendNotifReplication;
+    this.currentUser.replicationWarningCount = selected[0].replicationWarningCount;
+    this.currentUser.sendNotifAvalilableSpace = selected[0].sendNotifAvalilableSpace;
+    this.currentUser.normalFreeSpacePercent = selected[0].normalFreeSpacePercent;
+    this.currentUser.criticalFreeSpacePercent = selected[0].criticalFreeSpacePercent;
     this.editUser();
   }
 

@@ -32,3 +32,11 @@
 .users-table{
     padding: 10px;
 }
+md-input-container{
+    width: 240px;
+}
+md-checkbox{
+    display: inline-block;
+    width: 240px;
+    margin: 20px 0;
+}

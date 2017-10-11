@@ -70,29 +70,67 @@
       <md-input-container>
         <input mdInput type="email" placeholder="Email" [(ngModel)]="currentUser.email" id="email"/>
      </md-input-container>
+     <md-input-container>
+      <input mdInput type="text" placeholder="Phone Number" [(ngModel)]="currentUser.phoneNumber" id="phoneNumber"/>
+    </md-input-container>
       <!--<label>email
         <input id="email" [(ngModel)]=currentUser.email type="email"/>
       </label>-->
     </div>
     <div>
       <md-checkbox [(ngModel)]="currentUser.sendEmail" color="primary" id="sendEmail">Send Email</md-checkbox>
+      <md-checkbox [(ngModel)]="currentUser.sendSms" color="primary" id="sendSms">Send SMS</md-checkbox>
       <!--<label>sendEmail
         <input id="sendEmail" [(ngModel)]=currentUser.sendEmail type="checkbox"/>
       </label>-->
     </div>
     <div>
-      <!--<label>phoneNumber
-        <input id="phoneNumber" [(ngModel)]=currentUser.phoneNumber type="text"/>
-      </label>-->
-       <md-input-container>
-        <input mdInput type="text" placeholder="Phone Number" [(ngModel)]="currentUser.phoneNumber" id="phoneNumber"/>
+      <md-checkbox [(ngModel)]="currentUser.sendNotifNoNewUsers" color="primary" id="sendNotifNoNewUsers">No New Users</md-checkbox>
+      <md-input-container>
+        <input mdInput type="number" placeholder="Max No New Users Period Minutes" [(ngModel)]="currentUser.noNewSersMaxPeriod" id="noNewSersMaxPeriod"/>
      </md-input-container>
     </div>
     <div>
-      <!--<label>sendSms
-        <input id="sendSms" [(ngModel)]=currentUser.sendSms type="checkbox"/>
-      </label>-->
-      <md-checkbox [(ngModel)]="currentUser.sendSms" color="primary" id="sendSms">Send SMS</md-checkbox>
+      <md-checkbox [(ngModel)]="currentUser.sendNotifNoNewSessions" color="primary" id="sendNotifNoNewSessions">No New Sessions</md-checkbox>
+      <md-input-container>
+        <input mdInput type="number" placeholder="No New Sessions Period Minutes" [(ngModel)]="currentUser.noNewSessionsMaxPeriod" id="noNewSessionsMaxPeriod"/>
+     </md-input-container>
+    </div>
+    <div>
+      <md-checkbox [(ngModel)]="currentUser.sendNotifNginx" color="primary" id="sendNotifNginx">nginx DOWN</md-checkbox>
+    </div>
+    <div>
+      <md-checkbox [(ngModel)]="currentUser.sendNotifPostgres" color="primary" id="sendNotifPostgres">postgres DOWN</md-checkbox>
+    </div>
+    <div>
+      <md-checkbox [(ngModel)]="currentUser.sendNotifRadius" color="primary" id="sendNotifRadius">radius DOWN</md-checkbox>
+    </div>
+    <div>
+      <md-checkbox [(ngModel)]="currentUser.sendNotifCpApp" color="primary" id="sendNotifCpApp">CP App DOWN</md-checkbox>
+    </div>
+    <div>
+      <md-checkbox [(ngModel)]="currentUser.sendNotifApiTest" color="primary" id="sendNotifApiTest">Error On API call</md-checkbox>
+    </div>
+    <div>
+      <md-checkbox [(ngModel)]="currentUser.sendNotifCertExpires" color="primary" id="sendNotifCertExpires">Certificate Expires</md-checkbox>
+      <md-input-container>
+        <input mdInput type="number" placeholder="Certificate Expires Days" [(ngModel)]="currentUser.certExpiresDays" id="certExpiresDays"/>
+     </md-input-container>
+    </div>
+    <div>
+      <md-checkbox [(ngModel)]="currentUser.sendNotifReplication" color="primary" id="sendNotifReplication">Replication problem</md-checkbox>
+      <md-input-container>
+        <input mdInput type="number" placeholder="Replication warning count" [(ngModel)]="currentUser.replicationWarningCount" id="replicationWarningCount"/>
+     </md-input-container>
+    </div>
+    <div>
+      <md-checkbox [(ngModel)]="currentUser.sendNotifAvalilableSpace" color="primary" id="sendNotifAvalilableSpace">Available Space Control</md-checkbox>
+      <md-input-container>
+        <input mdInput type="number" placeholder="Normal Available Space(Percent)" [(ngModel)]="currentUser.normalFreeSpacePercent" id="normalFreeSpacePercent"/>
+     </md-input-container>
+     <md-input-container>
+      <input mdInput type="number" placeholder="Critical Available Space(Percent)" [(ngModel)]="currentUser.criticalFreeSpacePercent" id="criticalFreeSpacePercent"/>
+   </md-input-container>
     </div>
      <br>
    <!-- <button (click)="saveUser()" *ngIf="editAddUserPanelShown">save user</button>-->
