@@ -141,7 +141,24 @@
   </div>
      </div>
   </div>
+
+  <div *ngIf="inviteUserPanelShown" class="users-card">
+      <div class="users-card-header">Invite user</div>
+      <div class="new-user-card">
+      <div>
+        <md-input-container>
+          <input mdInput type="email" placeholder={{inviteError}} [(ngModel)]="inviteEmail" id="email"/>
+        </md-input-container>
+      </div>
+      <br>
+      <div>
+        <button md-raised-button color="primary" (click)="cancelAddUser()" type="button" *ngIf="inviteUserPanelShown" class="users-button" style="margin-left: 0;">Cancel</button>
+        <button md-raised-button color="primary" (click)="sendInviteUser()" type="button" *ngIf="inviteUserPanelShown" class="users-button" style="margin-left: 0; background: green;">Invite User</button>
+      </div>
+      </div>
+  </div>
+
   <button md-raised-button color="primary" (click)="addUser()" type="button" *ngIf="!editAddUserPanelShown" class="users-button">Add User</button>
-  <!--<button (click)="addUser()" *ngIf="!editAddUserPanelShown">add user</button>-->
+  <button md-raised-button color="primary" (click)="inviteUser()" type="button" *ngIf="!editAddUserPanelShown && !inviteUserPanelShown" class="users-button">InviteUser</button>
   <button (click)="deleteUser()" *ngIf="false">delete user</button>
 </div>

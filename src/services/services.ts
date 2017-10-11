@@ -162,6 +162,15 @@ export class DataService {
       .catch(this.handleError);
   }
 
+  sendInvite(email: string) {
+    this.loadToken();
+    let headers = new Headers({'X-AUTH-TOKEN': Globals.USERTOKEN});
+    console.log('request invited', email);
+    return this.http.post(Globals.SERVERADDR + '/sendInvitation?email='+email, {},{headers: headers})
+      .map(this.extractData)
+      .catch(this.handleError);
+  }
+
   deleteNotification(elToRemove: any) {
     this.loadToken();
     let headers = new Headers({'X-AUTH-TOKEN': Globals.USERTOKEN});

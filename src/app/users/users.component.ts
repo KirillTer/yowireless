@@ -10,8 +10,11 @@ export class UsersComponent implements OnInit {
   users;
   usersColumns;
   currentUser;
+  inviteEmail;
+  inviteError;
   editAddUserPanelShown: boolean;
   editUserPanelShown: boolean;
+  inviteUserPanelShown: boolean;
   loadingIndicator: boolean = true;
 
   constructor(private data: DataService) {
@@ -51,6 +54,9 @@ export class UsersComponent implements OnInit {
       { prop: 'sendSms', name: 'send sms', width: 140, minWidth: 140, maxWidth: 140, resizable: false, canAutoResize: false }
     ];
     this.editAddUserPanelShown = false;
+    this.inviteUserPanelShown = false;
+    this.inviteEmail = '';
+    this.inviteError = 'Email';
   }
 
   ngOnInit() {
@@ -117,9 +123,39 @@ export class UsersComponent implements OnInit {
     this.currentUser.newUser = true;
   }
 
+  inviteUser() {
+    this.inviteUserPanelShown = true;
+  }
+
   cancelAddUser() {
+    this.inviteUserPanelShown = false;
     this.editAddUserPanelShown = false;
     this.currentUser = {};
+    this.inviteError = 'Email';
+  }
+
+  sendInviteUser() {
+    console.log('send invited', this.inviteEmail);
+    this.data.sendInvite(this.inviteEmail).subscribe(
+      data => this.handleData_invite(data),
+      error => this.handleError_invite(error)
+    );
+  }
+
+  private handleData_invite(data: any) {
+    if (data.result == 'OK') {
+      this.inviteUserPanelShown = false;
+      console.log('invited', data.payload);
+    }
+    if (data.result == 'ERROR') {
+      this.inviteError = data.message;
+      console.log('invited', data.message);
+    }
+  }
+
+  private handleError_invite(error: any) {
+    this.inviteError = error;
+    console.log('error during invited user');
   }
 
   saveUser() {
